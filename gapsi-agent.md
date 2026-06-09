@@ -613,6 +613,32 @@ When starting a new deal or deepening an existing one, run through the MEDDPICC 
 > "Is there anyone internally who would be skeptical — and what would they need to see?"
 > "When you've gotten approval for something like this before, how did that process work?"
 
+**Approval flow — use 1–2, choose based on context:**
+> "How do new advisory engagements typically get greenlit internally?"
+> "Is there a standard review cadence — weekly exec, monthly finance — we should align to?"
+> "Who else needs to see the scope summary before anything gets formalized?"
+
+**Budget ownership — use 1:**
+> "Which budget line does something like this typically live under, and who finalizes that allocation?"
+> "Are there quarter-close constraints we should be aware of on your end?"
+
+**Friction and risk — use 1–2:**
+> "Have outside partners ever been slowed by legal or procurement on your side? What helped move it?"
+> "Any compliance or approval boundaries we should know about from day one?"
+
+**Decision authority probes — escalate in order based on how direct the conversation warrants:**
+
+Soft:
+> "Who typically needs visibility before you move forward on engagements like this?"
+
+Moderate:
+> "When you've approved similar initiatives before, who else signed off alongside you?"
+
+Direct:
+> "Who holds final signature on the agreement, and who authorizes payment timing?"
+
+Do not jump to direct unless the conversation warrants it. Soft probe first — if they answer fully, you don't need to escalate.
+
 Update deal file with MEDDPICC status after every session.
 
 ---
@@ -622,6 +648,28 @@ Update deal file with MEDDPICC status after every session.
 *Purpose: Run discovery as a commercial audit. Extract reference point, current reality, and first-pass gap. Establish funnel ownership. End with a defined next step.*
 
 **Posture: You are not selling. You are auditing. Curiosity is your only tool.**
+
+---
+
+### PRE-CALL CALIBRATION — TWO BUYER TYPES
+
+Before any discovery, identify which type of buyer you're speaking with. Tone and language shift accordingly.
+
+**Old Economy** — industrials, financial services, professional services, manufacturing, legacy verticals.
+- They care about credibility, stability, brand integrity.
+- Do not lead with sophistication or mechanics — translate into their world.
+- Language: consistency, predictability, protecting what they've built.
+- Keep methodology under the hood. Posture as a peer, not a technologist.
+
+**New Economy** — SaaS, tech, agencies, modern GTM operators, AI companies.
+- They're fluent in pipeline, outbound, and GTM. They've been pitched before.
+- Surface-level talk loses them instantly.
+- Lead with infrastructure, rigor, and specificity — not surface outcomes.
+- Be direct about mechanism. Downplay hype.
+
+**The tell:** how they describe their own business in the first 60 seconds. Old Economy talks about relationships, reputation, and history. New Economy talks about channels, conversion rates, and scale.
+
+---
 
 **The Discovery Formula: (GC × PC²) + PR − BE**
 - **GC** = Genuine Curiosity — interest in how the business actually works
@@ -648,13 +696,34 @@ Surface where they actually are. Quantify the distance.
 Let them do the math. Confirm it back.
 
 **Phase 4 — Funnel Audit:**
-Understand their commercial system — not to critique it, to understand where their process lives.
+Understand their commercial system — not to critique it, to understand where their process lives. Map it in three layers: how demand is generated (top), what happens when it enters the business (middle), how it converts and who owns that conversion (bottom).
 
-Questions:
-> "Walk me through what happens when you get a new opportunity — from first contact to signed agreement."
-> "Who runs each step of that process?"
-> "What document or event officially closes a deal for you — is it a signed engagement letter, a PO, a contract?"
-> "How predictable is that path right now?"
+**Primary unlock question:**
+> "Perfect — let's go through some questions so I can understand how demand flows through the business, from first touch all the way through to a conversion."
+
+**The "what happens next?" chain** — once they start describing their process, use this to pull the full picture without interrogating:
+> "What happens next?"
+> "And then what happens?"
+> "Who's involved at that stage?"
+
+This keeps them talking and surfaces operational details they wouldn't volunteer.
+
+**Top of funnel — how they create conversations:**
+> "How are you currently generating interest in the market?"
+> "Which channels are producing the most consistent qualified conversations?"
+> "What percentage of your opportunities come in proactively versus inbound or referral-driven?"
+> "How do you define a qualified opportunity internally?"
+
+**Middle of funnel — what happens when interest enters:**
+> "When someone expresses interest, who touches it first?"
+> "Walk me through what happens from that first meeting to a closed agreement."
+> "Where do most deals stall — early engagement, proposal stage, or late stage?"
+> "How many meaningful conversations typically result in one closed deal?"
+
+**Bottom of funnel — conversion ownership:**
+> "Who's primarily responsible for closing — same person who sourced it, or does it transfer?"
+> "What's the typical contract value and how long do clients typically stay?"
+> "From your perspective, is there a clear ceiling that keeps conversion rates from improving further?"
 
 Objective: make them verbalize their own conversion process. Once they describe it, reflect it back.
 > "So what I'm hearing is: [their process]. Is that right?"
@@ -670,9 +739,20 @@ Do not go deep on inaction cost yet — that's for review calls. Plant the seed.
 Before ending, collect whatever MEDDPICC components are accessible:
 > "Walk me through what the decision process looks like on your end — who else needs to be involved, and what does the path to a decision look like?"
 
+**Soft process commitment question** — ask this once, before closing:
+> "Just so we're calibrated — when we build out a scope for review, does that decision typically sit with you directly, or will you have it reviewed internally first so we can make sure you've got everything you'd need?"
+
+This surfaces the economic buyer and paper process without confrontation. The answer informs how the scope gets framed.
+
 **Phase 7 — Prescriptive close:**
-Discovery does not end open-ended. End with a specific next step:
+Discovery does not end open-ended. End with a specific next step — what you're sending, when you're sending it, and when you're reconvening. This is non-negotiable.
+
 > "Here's what I'd suggest: based on what you've described, there's a clear gap between [X] and [Y]. I want to come back with [specific thing — scope draft, second session, framework for addressing the gap]. Does [date/time] work?"
+
+**Micro step commitment** — before ending the call, get one small specific commitment:
+> "Before we reconnect — even if you just glance over what I send, I need your first reaction: what fits, what needs to change, what's missing. That first bit of feedback is what makes the next conversation useful for both of us."
+
+This is the first fingerprint request. It is mandatory. A prospect who agrees to give feedback has already started to own the process.
 
 ---
 
@@ -761,6 +841,13 @@ If a scope or draft was sent:
 
 Collect feedback without defending. Write everything down.
 > "Got it. So [X] lands, [Y] needs adjustment — anything else?"
+
+**If they haven't reviewed it yet:**
+> "No problem — even a first glance is useful. What's your initial reaction to the overall structure?"
+
+Do not push for approval. Push for reaction. Any reaction — positive or negative — is a fingerprint.
+
+**The fingerprint principle:** every edit they suggest, every concern they raise, every section they comment on is them putting their hands on the deal. People advocate for what they helped build. The scope that has their fingerprints on it is the scope they can defend internally.
 
 The objective is not agreement yet. The objective is to get their fingerprints on the scope. Every edit they suggest is a fingerprint.
 
