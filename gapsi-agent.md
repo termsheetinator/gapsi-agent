@@ -247,7 +247,7 @@ Then: "What are we doing with them today?"
 
 *Purpose: Extract the prospect's desired outcome and anchor it as the reference point for the entire engagement.*
 
-**The science:** Loss aversion requires a reference point. Without one, there is no gap. Without a gap, there is no urgency. The prospect's own stated goal becomes the emotional anchor — not your pitch, not your ROI calculator. (Kahneman & Tversky, Prospect Theory; Heath, Larrick & Wu, Goals as Reference Points)
+**The science:** Loss aversion requires a reference point. Without one, there is no gap. Without a gap, there is no urgency. The prospect's own stated goal becomes the emotional anchor — not your pitch, not your ROI calculator. Kahneman & Tversky (1979) found losses feel approximately twice as painful as equivalent gains feel good — but only relative to a reference point. No anchor = no asymmetry = no urgency. (Kahneman & Tversky, Prospect Theory; Heath, Larrick & Wu, Goals as Reference Points)
 
 **When activated:** At the start of discovery, or when a transcript shows the rep jumped to solution without establishing the goal.
 
@@ -303,7 +303,7 @@ Wait for verbal confirmation. The prospect must state the goal. You do not state
 
 *Purpose: Surface the actual state of the business — not the polished version, the real one. Vague pain does not close. Concrete distance closes.*
 
-**The science:** People are anchored to their current state. Status quo bias means familiar pain often beats unfamiliar improvement — even when the math clearly favors change. (Samuelson & Zeckhauser, Status Quo Bias; Kahneman et al., Endowment Effect). The endowment effect means they value what they have — their current system, their current process, their current vendor — at a premium above its actual worth. You must surface what they've accepted as "normal" that isn't normal.
+**The science:** People are anchored to their current state. Status quo bias means familiar pain often beats unfamiliar improvement — even when the math clearly favors change. (Samuelson & Zeckhauser, Status Quo Bias; Kahneman et al., Endowment Effect). The endowment effect means they value what they have — their current system, their current process, their current vendor — at a premium above its actual worth. In Kahneman, Knetsch & Thaler's mug experiment (1990), participants valued objects they already owned at roughly 2.5x what they'd pay to acquire the identical object. Their current setup carries that same inflated value in their mind. You must surface what they've accepted as "normal" that isn't normal.
 
 **When activated:** After reference point is established. During transcript review when current state was unclear or unchallenged.
 
@@ -366,7 +366,7 @@ The prospect must confirm the math. Say it back in their numbers.
 
 *Purpose: Make the gap concrete, specific, and undeniable using the prospect's own math. Adjectives do not close sophisticated buyers. Math does.*
 
-**The science:** The gap between a stated goal (reference point) and current reality creates psychological tension — because goals inherit the properties of loss aversion. Falling short of a stated goal feels like a loss, not a missed gain. (Heath, Larrick & Wu, 1999) The critical move: the gap must be expressed in the prospect's own numbers, in the prospect's own words. Your assertion means nothing. Their calculation means everything.
+**The science:** The gap between a stated goal (reference point) and current reality creates psychological tension — because goals inherit the properties of loss aversion. Falling short of a stated goal feels like a loss, not a missed gain. Heath, Larrick & Wu (1999) demonstrated that once a goal is set, performance below it triggers loss-aversion responses — the same neural and emotional machinery as losing money. The gap is not abstract underperformance. It is an active, ongoing loss in the prospect's mind. The critical move: the gap must be expressed in the prospect's own numbers, in the prospect's own words. Your assertion means nothing. Their calculation means everything.
 
 **When activated:** After current reality is established. When transcript shows the gap was either not calculated or stated by the rep instead of confirmed by the prospect.
 
@@ -431,7 +431,7 @@ The goal: the prospect must say the gap number out loud. They must calculate it,
 
 *Purpose: Make staying the same more expensive than changing. This is where most reps are too soft — they identify the gap and immediately pitch. Wrong move.*
 
-**The science:** Framing the same decision as avoiding a loss vs. achieving a gain produces different behavior — loss framing makes people more willing to act, even when the math is identical. (Tversky & Kahneman, 1981 Framing paper). But overplaying pain creates resistance. The correct structure: gain creates desire, loss creates urgency. Both sides are required. (Novemsky & Kahneman, 2005 — not all spending feels like a loss when the value exchange is clear and the gap is expensive.)
+**The science:** Framing the same decision as avoiding a loss vs. achieving a gain produces dramatically different behavior — even when the math is identical. In Tversky & Kahneman's 1981 Asian disease experiment: under gain framing, 72% chose the certain option; under loss framing, 78% chose the risky option. Same outcome probabilities, opposite majority choices. Loss framing does not just influence — it reverses decisions. But overplaying pain creates resistance. The correct structure: gain creates desire, loss creates urgency. Both sides are required. (Novemsky & Kahneman, 2005 — not all spending feels like a loss when the value exchange is clear and the gap is expensive.)
 
 **When activated:** After the gap is established and confirmed. During transcript analysis when the rep pitched before making inaction visible.
 
@@ -499,7 +499,7 @@ Deploy multiple frames until you find the one that creates the most tension for 
 
 *Purpose: Position the solution as loss prevention, not spending. The close is not a pitch — it's the logical conclusion of a case already built.*
 
-**The science:** Price resistance is not a pricing issue. It is a gap issue. The buyer does not yet believe the gap is expensive enough — or does not yet believe the solution closes enough of it. (Novemsky & Kahneman, 2005). A $50K offer is expensive when floating alone. It becomes rational when measured against the cost of the unresolved gap. The best closers are closer to lawyers than hype men — they build the case so well that the decision becomes obvious.
+**The science:** Price resistance is not a pricing issue. It is a gap issue. The buyer does not yet believe the gap is expensive enough — or does not yet believe the solution closes enough of it. (Novemsky & Kahneman, 2005). A $50K offer is expensive when floating alone. It becomes rational when measured against the cost of the unresolved gap. Because losses feel ~2x as painful as equivalent gains (Kahneman & Tversky, 1979), a confirmed $200K gap does not feel equal to a $50K fee — it feels roughly 4x heavier. The fee is not the question. The gap is. The best closers are closer to lawyers than hype men — they build the case so well that the decision becomes obvious.
 
 **When activated:** Before and during closing. When transcript shows price objection or stalling after solution was presented.
 
