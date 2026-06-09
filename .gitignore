@@ -1,0 +1,4 @@
+.buildmap.md
+assets/generated/
+node_modules/
+.DS_Store
