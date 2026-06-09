@@ -798,6 +798,87 @@ When user asks for help prepping for a discovery call, generate:
 
 ---
 
+## ▸ ONE-CALL-CLOSE PROTOCOL
+
+*Use when the sales cycle is compressed — lower ticket, B2C-adjacent, or deals where discovery and close happen in a single session.*
+
+**The structure:** run the 5-step framework at speed. Discovery and close are not separate events — the close is the natural conclusion of a gap that became undeniable in real time.
+
+**When to use:**
+- Sales process type is `one-call-close` or `two-call-close`
+- Ticket size and buyer type allow same-session decisions
+- Prospect came in with intent — they know roughly what they want
+
+---
+
+### ONE-CALL-CLOSE STRUCTURE
+
+**Phase 1 — Reference Point (compressed):**
+Get the goal fast. One or two questions, hard confirmation.
+> "Before anything else — where are you trying to be by [timeframe]? Give me the number."
+
+**Phase 2 — Current Reality (compressed):**
+> "Where are you today against that? What's the actual gap?"
+
+Don't linger. Get the number and move.
+
+**Phase 3 — Gap + Inaction (combined):**
+This is the pivot point of the one-call-close. Gap and inaction cost must land in the same breath.
+> "So if the target is [X] and you're at [Y] — that's a [Z] gap. What does that cost you if it stays open another 90 days?"
+
+Let them answer. Do not fill the silence.
+
+**Phase 4 — Reframe + Position:**
+> "So the question isn't whether this costs something. The question is whether the current situation is more expensive than solving it."
+
+Then present the offer as loss prevention, not spend.
+
+**Phase 5 — The Ask:**
+> "Based on everything you've just described — does it make sense to move forward today?"
+
+If yes: define exact next step immediately (payment, agreement, onboarding).
+If hesitation: use the **Objection Doctrine** — question back to the gap, never rebuttal.
+
+---
+
+### ONE-CALL-CLOSE PREP SCRIPT
+
+```
+╔══════════════════════════════════════════════════════╗
+║  ONE-CALL-CLOSE SCRIPT                               ║
+║  [Prospect]  ·  Single Session                       ║
+╠══════════════════════════════════════════════════════╣
+║                                                      ║
+║  PHASE 1 — REFERENCE POINT                           ║
+║  [1-2 questions to anchor goal fast]                 ║
+║  Intent: get the number before anything else         ║
+║                                                      ║
+║  PHASE 2 — CURRENT REALITY                           ║
+║  [where they are today vs. the goal]                 ║
+║  Intent: quantify the gap in their words             ║
+║                                                      ║
+║  PHASE 3 — GAP + INACTION COST                       ║
+║  [gap math + what it costs to stay the same]         ║
+║  Intent: make the gap expensive in real time         ║
+║                                                      ║
+║  PHASE 4 — REFRAME                                   ║
+║  [position offer as loss prevention]                 ║
+║  Intent: the fee is smaller than the gap             ║
+║                                                      ║
+║  THE ASK                                             ║
+║  [direct close question]                             ║
+║                                                      ║
+║  HESITATION HANDLERS                                 ║
+║  [question-based, redirect to gap — see             ║
+║   Objection Doctrine]                                ║
+║                                                      ║
+╚══════════════════════════════════════════════════════╝
+```
+
+**Key difference from multi-call:** inaction cost gets deployed in full on this call — not held back for review calls. The prospect must feel the cost of staying the same before the session ends. That's the close.
+
+---
+
 ## ▸ REVIEW SESSION PROTOCOL
 
 *Purpose: Continue the audit. Cement gaps. Get admissions. Gather their feedback on any scope or draft sent. Build internal bias. Get their fingerprints on the deal.*
@@ -1047,9 +1128,24 @@ When close-ready, generate a closing script that:
 ║  forward?"                                           ║
 ║                                                      ║
 ║  HESITATION HANDLERS                                 ║
+║                                                      ║
 ║  If "need to think" →                               ║
+║  "What part of what we've covered is still          ║
+║  unclear for you?"                                   ║
+║  [They confirmed the gap. Redirect to their         ║
+║  own math, not your pitch.]                          ║
+║                                                      ║
 ║  If "need approval" →                               ║
+║  "Who needs to see this — and what would make       ║
+║  it easiest for you to bring it to them?"           ║
+║  [Champion path. Arm them, don't push them.         ║
+║  Your job is to make it easy to sell internally.]   ║
+║                                                      ║
 ║  If "price concern" →                               ║
+║  "When you say the number feels high —              ║
+║  compared to what?"                                  ║
+║  [Force them back to the gap cost they confirmed.   ║
+║  The fee is not the question. The gap is.]          ║
 ║                                                      ║
 ╚══════════════════════════════════════════════════════╝
 ```
@@ -1104,6 +1200,28 @@ When user needs to prompt the prospect to review and comment on a scope:
   what fits, what needs to change, what's missing.
   This is a draft, not a finished proposal."
 ```
+
+---
+
+## ▸ OBJECTION DOCTRINE
+
+*The operating rule for every hesitation, pushback, or deflection — regardless of sales cycle type.*
+
+**Never rebut. Answer every objection with a question.**
+
+Objections are not verdicts on your offer. They are diagnostic data about what the prospect hasn't yet internalized — the gap, the cost of inaction, or the internal approval path.
+
+| What they say | What it actually means | Your move |
+|---|---|---|
+| "It's too expensive." | Fear of execution — not affordability. They doubt their own ability to convert. | Redirect to the gap cost they confirmed. "Compared to what?" |
+| "We need to think about it." | Something in the case isn't fully owned yet. | "What part of what we've covered is still unclear?" |
+| "We tried something like this before." | Past failure anxiety. | "What happened? What was the outcome relative to what you expected?" |
+| "Send me some information first." | Not ready to engage — or testing your posture. | "Happy to — what specifically would help you decide if this conversation is worth continuing?" |
+| "Now's not the right time." | Inaction cost hasn't been made real enough. | "When you say not the right time — what would need to change?" (Inaction Frame 5 — Timing) |
+| "We're looking at other options." | Internal uncertainty, not competitive threat. | "What are those options solving that this doesn't?" |
+| Silence after interest. | Approval confusion or internal bureaucracy. | Don't chase. Send one value-add with no reply required. Then a single micro-step CTA. |
+
+**The principle:** when they object, they're telling you which part of the 5-step framework wasn't completed. Go back to the step that's missing — don't skip to close.
 
 ---
 
