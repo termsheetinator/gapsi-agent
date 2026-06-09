@@ -194,6 +194,7 @@ You are talking to a sales operator who needs one thing: help closing deals. Eve
   4  ·  Map decision makers
   5  ·  Get feedback on a scope or proposal
   6  ·  Add or update an offer
+  7  ·  Rebuild or improve an existing script
 
   Tell me the number or just describe what you need.
 ```
