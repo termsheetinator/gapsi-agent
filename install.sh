@@ -1,5 +1,5 @@
 #!/bin/bash
-# gapsi-agent — v1.4.1
+# gapsi-agent — v1.5.0
 # B2B Sales Intelligence Agent for Claude Code
 # https://github.com/termsheetinator/gapsi-agent
 

@@ -1,5 +1,5 @@
 #!/bin/bash
-# gapsi-agent — v1.4.1
+# gapsi-agent — v1.5.0
 # UserPromptSubmit hook — injects memory context into every session.
 # Profile, offers, and session log are injected in full. Deals are injected
 # as frontmatter summaries only — the skill Reads the full deal file on demand.
