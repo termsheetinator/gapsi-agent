@@ -498,7 +498,7 @@ make the cost of the current situation undeniable before any solution is discuss
 
 ---
 
-### WHAT MILAD MISSED
+### WHAT THE REP MISSED
 
 The call opened with social rapport that ran 12 minutes — almost a third of
 available time. No reference point was anchored. The prospect said "we need to
@@ -512,7 +512,7 @@ introduced before any of that math existed.
 
 ---
 
-### GAPS MILAD FAILED TO CREATE
+### GAPS THE REP FAILED TO CREATE
 
 **Gap 1: The Pipeline Floor Nobody Named**
 
