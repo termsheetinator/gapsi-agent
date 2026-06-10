@@ -12,13 +12,13 @@ SESSION_LOG="$MEMORY_DIR/session-log.md"
 DEALS_DIR="$MEMORY_DIR/deals"
 
 if [ ! -d "$MEMORY_DIR" ] || [ ! -f "$MEMORY_INDEX" ]; then
-  echo "Gapsi is active. No memory found in this directory."
+  echo "GapSi is active. No memory found in this directory."
   echo "When the user invokes /gapsi-agent, begin with onboarding (Step 1)."
   exit 0
 fi
 
 if grep -q "Status: pending" "$MEMORY_INDEX"; then
-  echo "Gapsi is active. Memory is initialized but onboarding has not been completed."
+  echo "GapSi is active. Memory is initialized but onboarding has not been completed."
   echo "When the user invokes /gapsi-agent, begin with onboarding (Step 1)."
   exit 0
 fi

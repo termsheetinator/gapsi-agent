@@ -1,6 +1,6 @@
-# Gapsi — B2B Sales Intelligence Agent
+# GapSi — B2B Sales Intelligence Agent
 
-![Gapsi Banner](assets/banner.png)
+![GapSi Banner](assets/banner.png)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Skill-blue)](https://claude.ai/code)
@@ -26,7 +26,7 @@ One install. One 3-minute onboarding. Then it coaches you for as long as you sel
 - [What It Covers](#what-it-covers)
 - [How It Works](#how-it-works)
 - [The 8 Modes](#the-8-modes)
-- [How a Deal Moves Through Gapsi](#how-a-deal-moves-through-gapsi)
+- [How a Deal Moves Through GapSi](#how-a-deal-moves-through-gapsi)
 - [Old Economy / New Economy — Buyer Calibration](#old-economy--new-economy--buyer-calibration)
 - [Enterprise Cycle Support](#enterprise-cycle-support)
 - [MEDDPICC — When Decision Maker Gaps Become the Case](#meddpicc--when-decision-maker-gaps-become-the-case)
@@ -50,7 +50,7 @@ One install. One 3-minute onboarding. Then it coaches you for as long as you sel
 
 ## What This Is
 
-Gapsi is a Claude Code skill that turns Claude into a specialized B2B sales coach built on the **Loss Aversion Gap Framework** — a closing methodology grounded in six peer-reviewed behavioral economics studies. Paste a real call transcript and it produces a forensic analysis: every gap named after the actual business problem, every missed question written for this specific prospect, and a complete next-call script built from their words, their math, and their stated goals. No transcript? Debrief a call in two sentences and get the same output. It tracks every prospect in a per-deal file with a full MEDDPICC decision-maker map, an admissions log, a scope feedback log, and a close-readiness checklist. It remembers your offers, your sales process, and your patterns across every session. Every full analysis ends with an offer to export it as a formatted Word document.
+GapSi is a Claude Code skill that turns Claude into a specialized B2B sales coach built on the **Loss Aversion Gap Framework** — a closing methodology grounded in six peer-reviewed behavioral economics studies. Paste a real call transcript and it produces a forensic analysis: every gap named after the actual business problem, every missed question written for this specific prospect, and a complete next-call script built from their words, their math, and their stated goals. No transcript? Debrief a call in two sentences and get the same output. It tracks every prospect in a per-deal file with a full MEDDPICC decision-maker map, an admissions log, a scope feedback log, and a close-readiness checklist. It remembers your offers, your sales process, and your patterns across every session. Every full analysis ends with an offer to export it as a formatted Word document.
 
 It is not a generic AI assistant with a sales prompt. It is a closed-loop sales system: **analyze → diagnose → script → call → analyze again** — with deal memory connecting every loop.
 
@@ -75,7 +75,7 @@ flowchart LR
     B --> D["Gap stated by rep,<br/>never owned by prospect"]
     B --> E["Cost of inaction<br/>never made visible"]
     B --> F["Price introduced<br/>before the gap"]
-    C --> G["Gapsi finds which one<br/>— and scripts the fix"]
+    C --> G["GapSi finds which one<br/>— and scripts the fix"]
     D --> G
     E --> G
     F --> G
@@ -85,12 +85,12 @@ flowchart LR
 
 ## The Science It Runs On
 
-Gapsi's methodology isn't sales folklore. Every move is grounded in published, peer-reviewed research — with the actual numbers embedded in the coaching:
+GapSi's methodology isn't sales folklore. Every move is grounded in published, peer-reviewed research — with the actual numbers embedded in the coaching:
 
-| Study | Finding | How Gapsi Uses It |
+| Study | Finding | How GapSi Uses It |
 |---|---|---|
 | **Kahneman & Tversky, 1979** — Prospect Theory | Losses feel **~2x** as painful as equivalent gains feel good | The entire framework: frame the engagement as stopping a loss, not buying an upside |
-| **Tversky & Kahneman, 1981** — Framing Effects | Same decision, loss-framed vs. gain-framed: majority choice **reverses** (72% → 78% flip) | Loss framing doesn't nudge decisions — it reverses them. Gapsi checks every call for it |
+| **Tversky & Kahneman, 1981** — Framing Effects | Same decision, loss-framed vs. gain-framed: majority choice **reverses** (72% → 78% flip) | Loss framing doesn't nudge decisions — it reverses them. GapSi checks every call for it |
 | **Samuelson & Zeckhauser** — Status Quo Bias | Familiar pain beats unfamiliar improvement, even when the math favors change | Why "do nothing" is your real competitor — and how to make it expensive |
 | **Kahneman, Knetsch & Thaler, 1990** — Endowment Effect | People value what they own at **~2.5x** its market worth | The prospect's current system carries inflated value in their mind. Surface what they've accepted as "normal" |
 | **Heath, Larrick & Wu, 1999** — Goals as Reference Points | Falling short of a stated goal triggers **loss-aversion responses** — same machinery as losing money | Get the goal stated out loud, and the gap becomes an active, ongoing loss |
@@ -114,7 +114,7 @@ A confirmed $200K gap doesn't feel equal to a $50K fee — it feels roughly **4x
 
 > **People do not buy because the future is better. They buy when staying the same is more expensive than changing.**
 
-Five steps. Each one has a dedicated specialist agent inside Gapsi that knows its science, its questions, its diagnostic flags, and its fixes. Every call is scored against all five. When an objection surfaces, it tells you which step is incomplete — and the answer is always a question back, never a rebuttal.
+Five steps. Each one has a dedicated specialist agent inside GapSi that knows its science, its questions, its diagnostic flags, and its fixes. Every call is scored against all five. When an objection surfaces, it tells you which step is incomplete — and the answer is always a question back, never a rebuttal.
 
 ```mermaid
 flowchart TD
@@ -127,7 +127,7 @@ flowchart TD
     S5 -.->|"Objection raised?<br/>It tells you which step is incomplete.<br/>Go back — never rebut."| S1
 ```
 
-**The best closers are lawyers, not hype men.** They build a case so airtight the decision becomes obvious. Gapsi audits every call against these five steps, names every gap after the actual business problem, and hands you the exact script to rebuild the case on the next call.
+**The best closers are lawyers, not hype men.** They build a case so airtight the decision becomes obvious. GapSi audits every call against these five steps, names every gap after the actual business problem, and hands you the exact script to rebuild the case on the next call.
 
 ---
 
@@ -263,7 +263,7 @@ flowchart TD
     MEM -.->|"injected into context<br/>on every prompt"| O
 ```
 
-The routing is the product. You describe what you need — Gapsi identifies the session type, loads the deal, and executes.
+The routing is the product. You describe what you need — GapSi identifies the session type, loads the deal, and executes.
 
 ---
 
@@ -282,9 +282,9 @@ The routing is the product. You describe what you need — Gapsi identifies the 
 
 ---
 
-## How a Deal Moves Through Gapsi
+## How a Deal Moves Through GapSi
 
-Gapsi supports four sales process types — one-call-close, two-call-close, process-selling, and enterprise-cycle — and adapts every protocol to yours. Here's the full process-selling arc:
+GapSi supports four sales process types — one-call-close, two-call-close, process-selling, and enterprise-cycle — and adapts every protocol to yours. Here's the full process-selling arc:
 
 ```mermaid
 flowchart LR
@@ -308,7 +308,7 @@ Two doctrines govern the whole arc:
 
 **The Objection Doctrine** — never rebut. Every objection is diagnostic data telling you which of the 5 steps is incomplete:
 
-| What they say | What it actually means | Gapsi's move |
+| What they say | What it actually means | GapSi's move |
 |---|---|---|
 | "It's too expensive" | Fear of execution, not affordability | "Compared to what — the current cost of the gap?" |
 | "We need to think about it" | Something in the case isn't owned yet | "What part of what we've covered is still unclear?" |
@@ -322,7 +322,7 @@ Two doctrines govern the whole arc:
 
 ## Old Economy / New Economy — Buyer Calibration
 
-Every protocol in Gapsi adapts to the buyer type before it generates a single question. This is not a style preference — it's a deal-critical calibration that runs at the start of every discovery call, carries through every review call, and resets whenever a new stakeholder joins the room.
+Every protocol in GapSi adapts to the buyer type before it generates a single question. This is not a style preference — it's a deal-critical calibration that runs at the start of every discovery call, carries through every review call, and resets whenever a new stakeholder joins the room.
 
 ```mermaid
 flowchart LR
@@ -342,13 +342,13 @@ flowchart LR
     T --> NE
 ```
 
-**Why it matters:** the same gap, framed in the wrong register, creates resistance instead of urgency. An Old Economy buyer who gets GTM infrastructure talk is confused. A New Economy buyer who gets a relationship-first pitch loses interest in 90 seconds. Every script Gapsi generates uses the register you established in discovery — and flags when a new stakeholder requires recalibration.
+**Why it matters:** the same gap, framed in the wrong register, creates resistance instead of urgency. An Old Economy buyer who gets GTM infrastructure talk is confused. A New Economy buyer who gets a relationship-first pitch loses interest in 90 seconds. Every script GapSi generates uses the register you established in discovery — and flags when a new stakeholder requires recalibration.
 
 ---
 
 ## Enterprise Cycle Support
 
-When your process type is `enterprise-cycle`, Gapsi layers four critical adaptations onto every protocol:
+When your process type is `enterprise-cycle`, GapSi layers four critical adaptations onto every protocol:
 
 ```mermaid
 flowchart TD
@@ -368,7 +368,7 @@ In enterprise cycles, the Champion is not a warm contact — they are the deal. 
 
 ## MEDDPICC — When Decision Maker Gaps Become the Case
 
-The MEDDPICC framework is how Gapsi tracks whether a deal actually has a buyer — not just a contact. After every transcript, Gapsi assesses all eight components:
+The MEDDPICC framework is how GapSi tracks whether a deal actually has a buyer — not just a contact. After every transcript, GapSi assesses all eight components:
 
 | Component | What It Means | Status |
 |---|---|---|
@@ -383,7 +383,7 @@ The MEDDPICC framework is how Gapsi tracks whether a deal actually has a buyer �
 
 **The critical rule:** if your only contact is a champion with no path to the economic buyer, you do not have a deal — you have an internal sales rep. If you have an economic buyer but no champion, the case never gets built inside the org.
 
-When either is missing after a call, Gapsi doesn't tuck a note into the MEDDPICC status block. It adds them as full, named gaps in the main analysis — same structure as every other business gap:
+When either is missing after a call, GapSi doesn't tuck a note into the MEDDPICC status block. It adds them as full, named gaps in the main analysis — same structure as every other business gap:
 
 ```mermaid
 flowchart TD
@@ -429,23 +429,23 @@ flowchart TD
     F5 --> LOCK
 ```
 
-Gapsi tracks which frames were deployed on each call and which ones weren't. If inaction cost was invisible — the `INACTION INVISIBLE` flag — the analysis specifies exactly which frames were missed, and the next-call script deploys the most relevant one for this prospect's identity, risk profile, and stated goals.
+GapSi tracks which frames were deployed on each call and which ones weren't. If inaction cost was invisible — the `INACTION INVISIBLE` flag — the analysis specifies exactly which frames were missed, and the next-call script deploys the most relevant one for this prospect's identity, risk profile, and stated goals.
 
 ---
 
 ## Scenarios — When You'd Reach For It
 
-**The morning before a discovery call.** You type "discovery call with Meridian Logistics tomorrow, COO, came in through a referral." Gapsi builds a full audit-posture script: goal-anchoring questions, funnel audit sequence, decision-process probes, and a prescriptive close with a fingerprint ask — calibrated to whether you're selling into Old Economy (credibility, stability, peer posture) or New Economy (mechanism, rigor, specificity). You go in knowing exactly what you're extracting and what the next step looks like before the call starts.
+**The morning before a discovery call.** You type "discovery call with Meridian Logistics tomorrow, COO, came in through a referral." GapSi builds a full audit-posture script: goal-anchoring questions, funnel audit sequence, decision-process probes, and a prescriptive close with a fingerprint ask — calibrated to whether you're selling into Old Economy (credibility, stability, peer posture) or New Economy (mechanism, rigor, specificity). You go in knowing exactly what you're extracting and what the next step looks like before the call starts.
 
-**Ten minutes after a call ends.** You paste the transcript — nothing else. Gapsi already knows which deal it is, runs all five specialist agents against it, and hands you the full 9-section report: Core Principle, verdict, named business gaps (not framework labels), the full next-call script in your prospect's vocabulary, what to avoid, and the one sentence that determines the outcome of the next call. Then it offers to export the whole thing as a Word document.
+**Ten minutes after a call ends.** You paste the transcript — nothing else. GapSi already knows which deal it is, runs all five specialist agents against it, and hands you the full 9-section report: Core Principle, verdict, named business gaps (not framework labels), the full next-call script in your prospect's vocabulary, what to avoid, and the one sentence that determines the outcome of the next call. Then it offers to export the whole thing as a Word document.
 
-**No transcript? Same output.** "Just got off with Acme — they liked the scope but the CFO wasn't on the call." Gapsi debriefs you, captures the admission, flags that your Economic Buyer is still unconfirmed at review call stage, adds "The Decision Maker Visibility Gap" to the deal file, and gives you the soft probe to use next call.
+**No transcript? Same output.** "Just got off with Acme — they liked the scope but the CFO wasn't on the call." GapSi debriefs you, captures the admission, flags that your Economic Buyer is still unconfirmed at review call stage, adds "The Decision Maker Visibility Gap" to the deal file, and gives you the soft probe to use next call.
 
-**Mid-deal, mid-panic.** "They just emailed saying the price feels high. What do I say?" Gapsi pulls the deal file — they confirmed a $200K gap in review call 2 — and gives you the one question that routes them back to their own math. Not a rebuttal. Not a defense. A question.
+**Mid-deal, mid-panic.** "They just emailed saying the price feels high. What do I say?" GapSi pulls the deal file — they confirmed a $200K gap in review call 2 — and gives you the one question that routes them back to their own math. Not a rebuttal. Not a defense. A question.
 
-**The push.** "Is Northwind ready to close?" Gapsi runs the 7-point readiness checklist: gap owned, admissions captured (N total), fingerprints on scope, champion can articulate the internal case, economic buyer path confirmed. Either it generates the push-to-close script or tells you the single thing still missing.
+**The push.** "Is Northwind ready to close?" GapSi runs the 7-point readiness checklist: gap owned, admissions captured (N total), fingerprints on scope, champion can articulate the internal case, economic buyer path confirmed. Either it generates the push-to-close script or tells you the single thing still missing.
 
-**Enterprise, multi-stakeholder.** "The CFO is joining the review call next week." Gapsi recalibrates — Old or New Economy register for the CFO specifically, which MEDDPICC components are still unconfirmed for them, and how to re-establish the reference point with a new stakeholder without undoing what the champion already owns.
+**Enterprise, multi-stakeholder.** "The CFO is joining the review call next week." GapSi recalibrates — Old or New Economy register for the CFO specifically, which MEDDPICC components are still unconfirmed for them, and how to re-establish the reference point with a new stakeholder without undoing what the champion already owns.
 
 ---
 
@@ -454,7 +454,7 @@ Gapsi tracks which frames were deployed on each call and which ones weren't. If 
 ```mermaid
 sequenceDiagram
     participant You
-    participant G as Gapsi
+    participant G as GapSi
     You->>G: "New prospect — Northwind Mfg, VP Sales, call booked Friday"
     G->>You: Deal file created. Discovery script — Old Economy calibrated.<br/>Audit posture set. Fingerprint ask built in.
     Note over You: Friday — discovery call happens
@@ -722,20 +722,20 @@ flowchart LR
     f1 --> c4
 ```
 
-The deepest benefit isn't any single script. It's that the methodology gets **installed in you**. After thirty analyzed calls, you start hearing the missing reference point in real time, mid-conversation — before Gapsi ever sees the transcript.
+The deepest benefit isn't any single script. It's that the methodology gets **installed in you**. After thirty analyzed calls, you start hearing the missing reference point in real time, mid-conversation — before GapSi ever sees the transcript.
 
 ---
 
 ## Fitting It Into Your Daily Workflow
 
-Gapsi is built around the rhythm of a selling week, not a chat window:
+GapSi is built around the rhythm of a selling week, not a chat window:
 
 ```mermaid
 flowchart TD
-    M["MORNING<br/>'What's on today — review call with Acme at 2'"] --> MP["Gapsi: deal status + prep script<br/>built from last call's gaps + buyer type"]
+    M["MORNING<br/>'What's on today — review call with Acme at 2'"] --> MP["GapSi: deal status + prep script<br/>built from last call's gaps + buyer type"]
     MP --> CALL["YOU TAKE THE CALL"]
     CALL --> PA["AFTER<br/>Paste transcript — or just debrief it"]
-    PA --> AN["Gapsi: 9-section report, admissions logged,<br/>MEDDPICC updated, one priority fix,<br/>Word doc on request"]
+    PA --> AN["GapSi: 9-section report, admissions logged,<br/>MEDDPICC updated, one priority fix,<br/>Word doc on request"]
     AN --> FU["'Write the follow-up'<br/>Email built from THIS call's specifics"]
     FU --> MEMU[("memory/ updated")]
     MEMU --> WK["WEEKLY<br/>'Where does every deal stand?'<br/>Stage + blind spots per prospect"]
@@ -759,7 +759,7 @@ No dashboards to maintain, no CRM fields to fill. The memory updates itself as a
 
 ## How It Remembers
 
-Gapsi stores everything in a `memory/` folder in your project directory — plain markdown files you can read, edit, or delete. No external database, no API keys, no cloud sync. Everything lives on your machine.
+GapSi stores everything in a `memory/` folder in your project directory — plain markdown files you can read, edit, or delete. No external database, no API keys, no cloud sync. Everything lives on your machine.
 
 ```
 memory/
@@ -771,7 +771,7 @@ memory/
     └── deal-[slug].md     ← one file per prospect — MEDDPICC, gaps, admissions
 ```
 
-A hook reads these files on every prompt and injects them into Claude's context automatically — your profile, offers, and session log in full, plus a frontmatter summary of every active deal. Before working a specific deal, Gapsi reads the full file. You never have to re-explain your offers, and Gapsi never asks you a question your memory already answers.
+A hook reads these files on every prompt and injects them into Claude's context automatically — your profile, offers, and session log in full, plus a frontmatter summary of every active deal. Before working a specific deal, GapSi reads the full file. You never have to re-explain your offers, and GapSi never asks you a question your memory already answers.
 
 **Privacy is structural, not promised:** if your project is a git repository, the installer adds `memory/` to your `.gitignore` automatically, so prospect names, pricing, and admissions can never be committed or pushed.
 
@@ -788,7 +788,7 @@ The coaching philosophy is opinionated, and it shows in every output:
 - **Buyer type calibration** — every script knows whether this is Old Economy or New Economy and writes accordingly. The same gap sounds different in the two registers.
 - **No filler** — no "great question!", no pep talks, no summary paragraphs of things you already know. A sharp analyst who's been in these deals before.
 - **Word document on demand** — every full analysis ends with one line: *Want this as a formatted Word document? Say yes and I'll build it.* Nothing else. Then it waits.
-- **It will not do your paperwork** — Gapsi gives feedback on your scopes and engagement letters but never writes them. The thinking stays yours; the deal stays yours.
+- **It will not do your paperwork** — GapSi gives feedback on your scopes and engagement letters but never writes them. The thinking stays yours; the deal stays yours.
 
 ---
 
@@ -796,19 +796,19 @@ The coaching philosophy is opinionated, and it shows in every output:
 
 **Built for:** B2B operators selling high-ticket services and solutions — $15K to $250K+ engagements. Founders who sell, fractional executives, agency owners, advisory firms, consultants, and AE/sales teams running discovery → proposal → close motions. Supports one-call-close, two-call-close, process-selling, and enterprise cycles.
 
-**Not for:** transactional e-commerce, PLG self-serve funnels, or anyone looking for a tool that sends emails or dials prospects *for* them. Gapsi makes **you** better in the room. It doesn't replace the room.
+**Not for:** transactional e-commerce, PLG self-serve funnels, or anyone looking for a tool that sends emails or dials prospects *for* them. GapSi makes **you** better in the room. It doesn't replace the room.
 
 ---
 
 ## Tips for Users
 
 - **Trigger:** Type `/gapsi-agent` in Claude Code — first run starts onboarding, subsequent runs load your memory
-- **Transcripts:** Paste the raw transcript directly into the chat — no preamble needed; Gapsi identifies the deal and call type automatically
+- **Transcripts:** Paste the raw transcript directly into the chat — no preamble needed; GapSi identifies the deal and call type automatically
 - **No transcript? Debrief anyway.** Even a two-sentence account keeps the deal file alive and gives you the next-call script
-- **Multiple offers:** Add new offers anytime — just tell Gapsi you want to add one
-- **After a win or loss:** Tell Gapsi why. That one minute compounds into your confirmed-angles playbook
+- **Multiple offers:** Add new offers anytime — just tell GapSi you want to add one
+- **After a win or loss:** Tell GapSi why. That one minute compounds into your confirmed-angles playbook
 - **Word document:** After any transcript analysis, say "yes" to get the full report as a formatted `.docx`
-- **Enterprise deals:** Tell Gapsi your process type is `enterprise-cycle` during onboarding — every protocol adapts accordingly
+- **Enterprise deals:** Tell GapSi your process type is `enterprise-cycle` during onboarding — every protocol adapts accordingly
 
 ---
 
@@ -859,7 +859,7 @@ Your `memory/` files are never touched by the installer. An existing `.claude/se
 
 ---
 
-*Gapsi is built on peer-reviewed behavioral science: Kahneman & Tversky (Prospect Theory, 1979), Tversky & Kahneman (Framing Effects, 1981), Samuelson & Zeckhauser (Status Quo Bias), Kahneman, Knetsch & Thaler (Endowment Effect, 1990), Heath, Larrick & Wu (Goals as Reference Points, 1999), Novemsky & Kahneman (Boundaries of Loss Aversion, 2005).*
+*GapSi is built on peer-reviewed behavioral science: Kahneman & Tversky (Prospect Theory, 1979), Tversky & Kahneman (Framing Effects, 1981), Samuelson & Zeckhauser (Status Quo Bias), Kahneman, Knetsch & Thaler (Endowment Effect, 1990), Heath, Larrick & Wu (Goals as Reference Points, 1999), Novemsky & Kahneman (Boundaries of Loss Aversion, 2005).*
 
 ---
 

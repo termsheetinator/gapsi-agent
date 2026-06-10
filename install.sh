@@ -71,7 +71,7 @@ printf "${RESET}"
 printf "  ${DIM}Gap + Sales Intelligence  ·  by termsheetinator  ·  B2B Sales Coach${RESET}\n"
 printf "  ${DIM}──────────────────────────────────────────────────────────────────${RESET}\n\n"
 
-type_out "  Installing Gapsi Agent..." 0.02
+type_out "  Installing GapSi Agent..." 0.02
 echo ""
 
 # ── Variables ─────────────────────────────────────────────────────────────────
@@ -109,7 +109,7 @@ cat > "$PROJECT_DIR/memory/MEMORY.md" << 'MEMINDEX'
 last-updated: —
 ---
 
-# Gapsi Memory Index
+# GapSi Memory Index
 
 ## User Profile
 - File: memory/user-profile.md
