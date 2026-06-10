@@ -1481,6 +1481,8 @@ last-updated: [ISO date]
 
 ### NODE.JS BUILD SPEC
 
+**Design principle:** This document must feel spacious and well-structured — not like a wall of text. Every card, callout, and block should have visible breathing room above, below, and inside it. If anything looks cramped, increase padding and spacing. The document has 9 sections across 12–15 pages. Generous whitespace is not wasted space — it is what makes the content readable at a glance.
+
 **Imports — always use this exact set:**
 
 ```js
@@ -1564,10 +1566,10 @@ The Core Principle, Gaps Failed to Create, Gaps to Build on the Next Call, Admis
 
 **TYPOGRAPHY**
 
-- Section title: 16pt bold navy `1a2744`, spacing before 280 after 160
-- Subsection / gap name: 13pt bold dark grey `1f1f1f`, spacing before 200 after 80
-- Body text: 11pt regular black `1a1a1a`, line spacing 276 (1.15×), spacing after 120
-- Field labels: 10pt bold dark grey `333333`, spacing after 60
+- Section title: 16pt bold navy `1a2744`, spacing before 360 after 200
+- Subsection / gap name: 13pt bold dark grey `1f1f1f`, spacing before 240 after 100
+- Body text: 11pt regular black `1a1a1a`, line spacing 276 (1.15×), spacing after 160
+- Field labels: 10pt bold dark grey `333333`, spacing before 160 after 80 — label always has space above it, tight below so it feels attached to its content
 
 ---
 
@@ -1578,49 +1580,50 @@ new Table({
   width: { size: 9360, type: WidthType.DXA },
   columnWidths: [9360],
   rows: [
-    // Row 1 — navy header
+    // Row 1 — navy header — generous side padding so text doesn't hug the edge
     new TableRow({ children: [new TableCell({
       shading: { fill: "1a2744", type: ShadingType.CLEAR },
-      margins: { top: 120, bottom: 120, left: 200, right: 200 },
+      margins: { top: 160, bottom: 160, left: 400, right: 400 },
       borders: { top:{style:BorderStyle.NONE,size:0,color:"auto"}, bottom:{style:BorderStyle.NONE,size:0,color:"auto"},
                  left:{style:BorderStyle.NONE,size:0,color:"auto"}, right:{style:BorderStyle.NONE,size:0,color:"auto"} },
       children: [new Paragraph({ children: [
         new TextRun({ text: "Gap N: [Gap Name]", bold: true, color: "FFFFFF", size: 24, font: "Arial" })
       ]})]
     })] }),
-    // Row 2 — light blue content body
+    // Row 2 — light blue content body — match side padding to header, generous vertical padding
     new TableRow({ children: [new TableCell({
       shading: { fill: "eef3fa", type: ShadingType.CLEAR },
-      margins: { top: 160, bottom: 160, left: 200, right: 200 },
+      margins: { top: 240, bottom: 280, left: 400, right: 400 },
       borders: { top:{style:BorderStyle.NONE,size:0,color:"auto"},
                  bottom:{style:BorderStyle.SINGLE,size:6,color:"1a2744"},
                  left:{style:BorderStyle.SINGLE,size:6,color:"1a2744"},
                  right:{style:BorderStyle.SINGLE,size:6,color:"1a2744"} },
       children: [
-        // Field label paragraph: 10pt bold #333333
-        new Paragraph({ spacing: { after: 60 }, children: [
+        // Field label: 10pt bold #333333, tight spacing after (label hugs its content)
+        new Paragraph({ spacing: { before: 0, after: 80 }, children: [
           new TextRun({ text: "What happened:", bold: true, size: 20, color: "333333", font: "Arial" })
         ]}),
-        // Content paragraph: 11pt body
-        new Paragraph({ spacing: { after: 120 }, children: [
+        // Content paragraph: 11pt body, generous spacing after to separate from next field
+        new Paragraph({ spacing: { after: 200 }, children: [
           new TextRun({ text: "[content]", size: 22, color: "1a1a1a", font: "Arial" })
         ]}),
-        // Each question: shaded sub-block
+        // Each question: shaded sub-block, indented with breathing room above and below
         new Paragraph({
           shading: { fill: "f4f4f4", type: ShadingType.CLEAR },
           border: { top:{style:BorderStyle.SINGLE,size:4,color:"cccccc"},
                     bottom:{style:BorderStyle.SINGLE,size:4,color:"cccccc"},
                     left:{style:BorderStyle.SINGLE,size:4,color:"cccccc"},
                     right:{style:BorderStyle.SINGLE,size:4,color:"cccccc"} },
-          indent: { left: 360 },
-          spacing: { before: 60, after: 60 },
+          indent: { left: 360, right: 120 },
+          spacing: { before: 80, after: 80 },
           children: [new TextRun({ text: '"[question]"', italics: true, size: 20, color: "333333", font: "Arial" })]
         }),
       ]
     })] }),
   ],
-  margins: { bottom: 160 }
 }),
+// Spacer paragraph between gap cards — creates visual separation, not table margin
+new Paragraph({ spacing: { before: 0, after: 280 }, children: [] }),
 ```
 
 ---
@@ -1636,15 +1639,15 @@ new Paragraph({ spacing: { before: 200, after: 80 }, children: [
 new Paragraph({ spacing: { after: 100 }, children: [
   new TextRun({ text: "[intent note]", italics: true, size: 20, color: "555555", font: "Arial" })
 ]}),
-// Quote block — shaded box
+// Quote block — shaded box with generous indent so text breathes inside the block
 new Paragraph({
   shading: { fill: "f0f0f0", type: ShadingType.CLEAR },
   border: { top:{style:BorderStyle.SINGLE,size:4,color:"cccccc"},
             bottom:{style:BorderStyle.SINGLE,size:4,color:"cccccc"},
             left:{style:BorderStyle.SINGLE,size:4,color:"cccccc"},
             right:{style:BorderStyle.SINGLE,size:4,color:"cccccc"} },
-  indent: { left: 144, right: 144 },
-  spacing: { before: 80, after: 160 },
+  indent: { left: 280, right: 280 },
+  spacing: { before: 120, after: 200 },
   children: [new TextRun({ text: '"[exact script line]"', size: 22, color: "1f1f1f", font: "Arial" })]
 }),
 ```
