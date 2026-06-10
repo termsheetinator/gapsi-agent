@@ -1467,127 +1467,318 @@ last-updated: [ISO date]
 
 *Activated when the user says yes (or any affirmative) to the Word document offer at the end of the CALL ANALYSIS REPORT.*
 
-**Execution rule:** Invoke `anthropic-skills:docx` immediately using the Skill tool. Do NOT use the Agent tool. Do NOT send a message before invoking. Do NOT say "I'll build this" or "building now" or any acknowledgment. Do NOT monitor for completion or check status after invoking. The only correct behavior: invoke the skill in full, in one shot, with the complete content and design spec below. Nothing before. Nothing after except the file confirmation the skill returns.
+**Execution rule — self-contained only.** Do NOT invoke `anthropic-skills:docx`. Do NOT use the Skill tool or Agent tool for this. Do NOT send any message before building. Do NOT say "I'll build this" or "building now." Write a complete Node.js script using the `docx` npm package, run it with `node`, save the file. One shot. Nothing before except the script. Nothing after except the path confirmation.
 
-**Filename:** `[Company] — Call Analysis — [Date].docx` — save to the current working directory.
+**Steps:**
+1. `npm list -g docx 2>/dev/null | grep docx || npm install -g docx` — install if missing
+2. Write the full script to `/tmp/gapsi_[company-slug].js`
+3. `node /tmp/gapsi_[company-slug].js`
+4. Output: `[Company] — Call Analysis — [Date].docx` in the current working directory
 
-**Content:** Pass the full rendered CALL ANALYSIS REPORT exactly as delivered — all 9 sections, all content, no omissions, no reformatting.
-
----
-
-### LAYOUT & DESIGN SPEC
-
-**Page setup:** US Letter (8.5 × 11"), 1-inch margins all sides. Footer on every page after the cover: page number right-aligned, report title left-aligned, in 9pt grey.
+**Content:** Full rendered CALL ANALYSIS REPORT — all 9 sections, all content, no omissions.
 
 ---
 
-**COVER PAGE**
+### NODE.JS BUILD SPEC
 
-Full-page dark navy background (#1a2744). All text white, centered.
+**Imports — always use this exact set:**
 
-- Top third: "CALL ANALYSIS" in 28pt bold caps, with the company name directly below in 22pt bold
-- Middle: call type and date in 14pt regular, then a thin white rule (line divider)
-- Lower middle: "Prepared for: [Rep Name] · [Rep Company]" in 12pt, then "Prospect: [Contact Name], [Title] · [Prospect Company]" in 12pt
-- Bottom: "Prepared by Gapsi" in 11pt, light grey
+```js
+const { Document, Packer, Paragraph, TextRun, Table, TableRow, TableCell,
+        BorderStyle, WidthType, ShadingType, AlignmentType, PageBreak,
+        Header, Footer, PageNumber, TabStopType, TabStopPosition } = require('docx');
+const fs = require('fs');
+```
 
-Page break after cover. Nothing else on this page.
+**Page setup:** US Letter, 1-inch margins all sides.
+```js
+sections: [{ properties: { page: {
+  size: { width: 12240, height: 15840 },
+  margin: { top: 1440, right: 1440, bottom: 1440, left: 1440 }
+}}, headers: { ... }, footers: { ... }, children: [ /* all content */ ] }]
+// Content width = 9360 DXA
+```
+
+**Footer (every page after cover):**
+```js
+new Footer({ children: [new Paragraph({
+  children: [
+    new TextRun({ text: "[Company] — Call Analysis", size: 18, color: "999999" }),
+    new TextRun({ text: "\t", size: 18 }),
+    new TextRun({ children: [PageNumber.CURRENT], size: 18, color: "999999" }),
+  ],
+  tabStops: [{ type: TabStopType.RIGHT, position: 9360 }],
+})]})
+```
 
 ---
 
-**SECTION BREAKS**
+**COVER PAGE — CRITICAL: use a full-width table with navy cell shading. NEVER use free-floating paragraphs with white text — white text on white paper renders invisible.**
 
-Page break before each of these sections:
-- The Core Principle
-- Gaps Failed to Create
-- Gaps to Build on the Next Call
-- Admissions Captured
-- The Next Call Script
-- What to Avoid on This Call
-- The One Sentence to Remember
-- Decision Maker Status (MEDDPICC)
+```js
+new Table({
+  width: { size: 9360, type: WidthType.DXA },
+  columnWidths: [9360],
+  rows: [new TableRow({ children: [new TableCell({
+    shading: { fill: "1a2744", type: ShadingType.CLEAR },
+    margins: { top: 2800, bottom: 2000, left: 800, right: 800 },
+    borders: { top:{style:BorderStyle.NONE,size:0,color:"auto"},
+               bottom:{style:BorderStyle.NONE,size:0,color:"auto"},
+               left:{style:BorderStyle.NONE,size:0,color:"auto"},
+               right:{style:BorderStyle.NONE,size:0,color:"auto"} },
+    children: [
+      // "CALL ANALYSIS" — 28pt bold white centered
+      new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 120 },
+        children: [new TextRun({ text: "CALL ANALYSIS", bold: true, color: "FFFFFF", size: 56, font: "Arial" })] }),
+      // Company name — 22pt bold white centered
+      new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 400 },
+        children: [new TextRun({ text: "[Company]", bold: true, color: "FFFFFF", size: 44, font: "Arial" })] }),
+      // Call type · Date — 14pt white centered
+      new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 400 },
+        children: [new TextRun({ text: "[Call Type]  ·  [Date]", color: "FFFFFF", size: 28, font: "Arial" })] }),
+      // Thin white rule
+      new Paragraph({ border: { bottom: { style: BorderStyle.SINGLE, size: 6, color: "FFFFFF", space: 1 } },
+        spacing: { after: 400 }, children: [new TextRun("")] }),
+      // Prepared for line
+      new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 120 },
+        children: [new TextRun({ text: "Prepared for: [Rep Name]  ·  [Rep Company]", color: "FFFFFF", size: 24, font: "Arial" })] }),
+      // Prospect line
+      new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 1200 },
+        children: [new TextRun({ text: "Prospect: [Contact], [Title]  ·  [Prospect Company]", color: "FFFFFF", size: 24, font: "Arial" })] }),
+      // Gapsi credit
+      new Paragraph({ alignment: AlignmentType.CENTER,
+        children: [new TextRun({ text: "Prepared by Gapsi", color: "aaaaaa", size: 22, font: "Arial" })] }),
+    ]
+  })]})],
+}),
+new Paragraph({ children: [new PageBreak()] }),
+```
+
+---
+
+**SECTION BREAKS — `pageBreakBefore: true` on the first paragraph of each section:**
+
+The Core Principle, Gaps Failed to Create, Gaps to Build on the Next Call, Admissions Captured, The Next Call Script, What to Avoid on This Call, The One Sentence to Remember, Decision Maker Status (MEDDPICC).
 
 ---
 
 **TYPOGRAPHY**
 
-- Section title (##): 16pt bold, navy (#1a2744), 14pt spacing before, 8pt after
-- Subsection / gap name (###): 13pt bold, dark grey (#1f1f1f), 10pt spacing before, 4pt after
-- Body text: 11pt, black (#1a1a1a), 1.15 line spacing, 6pt spacing between paragraphs
-- Field labels (bold inline labels like "What happened:", "The gap:", "Current state:", etc.): 10pt bold, dark grey — on their own line above the content
+- Section title: 16pt bold navy `1a2744`, spacing before 280 after 160
+- Subsection / gap name: 13pt bold dark grey `1f1f1f`, spacing before 200 after 80
+- Body text: 11pt regular black `1a1a1a`, line spacing 276 (1.15×), spacing after 120
+- Field labels: 10pt bold dark grey `333333`, spacing after 60
 
 ---
 
-**GAP BLOCKS** (applies to both Gaps sections)
+**GAP CARDS** (both Gaps sections — one table per gap)
 
-Each individual gap (Gap 1, Gap 2, etc.) is a bordered card:
-
-- Outer border: 1pt solid navy (#1a2744), rounded feel with generous cell padding (12pt top/bottom, 14pt left/right)
-- Gap name header row: navy background (#1a2744), white bold text 12pt — spans full card width
-- Card interior background: very light blue (#eef3fa)
-- Inside the card, each field (What happened / Questions that should have been asked / The gap / How [offer] fits OR Current state / Desired state / Gap / Inaction cost / Solution fit) renders as:
-  - Field label in 10pt bold dark grey on its own line
-  - Content in 11pt body text below it
-  - 6pt space between fields
-- "Questions that should have been asked" items: each question in a light grey shaded block (#f4f4f4), 1pt grey border, left-indented 0.25 inches, 10pt italic
-- 12pt spacing between gap cards
+```js
+new Table({
+  width: { size: 9360, type: WidthType.DXA },
+  columnWidths: [9360],
+  rows: [
+    // Row 1 — navy header
+    new TableRow({ children: [new TableCell({
+      shading: { fill: "1a2744", type: ShadingType.CLEAR },
+      margins: { top: 120, bottom: 120, left: 200, right: 200 },
+      borders: { top:{style:BorderStyle.NONE,size:0,color:"auto"}, bottom:{style:BorderStyle.NONE,size:0,color:"auto"},
+                 left:{style:BorderStyle.NONE,size:0,color:"auto"}, right:{style:BorderStyle.NONE,size:0,color:"auto"} },
+      children: [new Paragraph({ children: [
+        new TextRun({ text: "Gap N: [Gap Name]", bold: true, color: "FFFFFF", size: 24, font: "Arial" })
+      ]})]
+    })] }),
+    // Row 2 — light blue content body
+    new TableRow({ children: [new TableCell({
+      shading: { fill: "eef3fa", type: ShadingType.CLEAR },
+      margins: { top: 160, bottom: 160, left: 200, right: 200 },
+      borders: { top:{style:BorderStyle.NONE,size:0,color:"auto"},
+                 bottom:{style:BorderStyle.SINGLE,size:6,color:"1a2744"},
+                 left:{style:BorderStyle.SINGLE,size:6,color:"1a2744"},
+                 right:{style:BorderStyle.SINGLE,size:6,color:"1a2744"} },
+      children: [
+        // Field label paragraph: 10pt bold #333333
+        new Paragraph({ spacing: { after: 60 }, children: [
+          new TextRun({ text: "What happened:", bold: true, size: 20, color: "333333", font: "Arial" })
+        ]}),
+        // Content paragraph: 11pt body
+        new Paragraph({ spacing: { after: 120 }, children: [
+          new TextRun({ text: "[content]", size: 22, color: "1a1a1a", font: "Arial" })
+        ]}),
+        // Each question: shaded sub-block
+        new Paragraph({
+          shading: { fill: "f4f4f4", type: ShadingType.CLEAR },
+          border: { top:{style:BorderStyle.SINGLE,size:4,color:"cccccc"},
+                    bottom:{style:BorderStyle.SINGLE,size:4,color:"cccccc"},
+                    left:{style:BorderStyle.SINGLE,size:4,color:"cccccc"},
+                    right:{style:BorderStyle.SINGLE,size:4,color:"cccccc"} },
+          indent: { left: 360 },
+          spacing: { before: 60, after: 60 },
+          children: [new TextRun({ text: '"[question]"', italics: true, size: 20, color: "333333", font: "Arial" })]
+        }),
+      ]
+    })] }),
+  ],
+  margins: { bottom: 160 }
+}),
+```
 
 ---
 
 **SCRIPT BLOCKS** (Next Call Script section)
 
-- Phase label (Opening, Gap Statement, Stalled Pipeline Question, etc.): 12pt bold navy, on its own line
-- Intent line (the *italics* instruction below the phase label): 10pt italic grey (#555555), 4pt below the phase label
-- Each script line (quoted language): rendered in a shaded block — light grey background (#f0f0f0), 1pt grey border (#cccccc), 10pt padding left/right, 8pt padding top/bottom, 11pt text in dark grey (#1f1f1f)
-- If a section has multiple script lines (e.g., follow-up after silence), each quote gets its own shaded block
-- 10pt spacing between phase blocks
+```js
+// Phase label
+new Paragraph({ spacing: { before: 200, after: 80 }, children: [
+  new TextRun({ text: "[Phase Name]", bold: true, size: 24, color: "1a2744", font: "Arial" })
+]}),
+// Intent line
+new Paragraph({ spacing: { after: 100 }, children: [
+  new TextRun({ text: "[intent note]", italics: true, size: 20, color: "555555", font: "Arial" })
+]}),
+// Quote block — shaded box
+new Paragraph({
+  shading: { fill: "f0f0f0", type: ShadingType.CLEAR },
+  border: { top:{style:BorderStyle.SINGLE,size:4,color:"cccccc"},
+            bottom:{style:BorderStyle.SINGLE,size:4,color:"cccccc"},
+            left:{style:BorderStyle.SINGLE,size:4,color:"cccccc"},
+            right:{style:BorderStyle.SINGLE,size:4,color:"cccccc"} },
+  indent: { left: 144, right: 144 },
+  spacing: { before: 80, after: 160 },
+  children: [new TextRun({ text: '"[exact script line]"', size: 22, color: "1f1f1f", font: "Arial" })]
+}),
+```
 
 ---
 
 **ADMISSIONS CAPTURED**
 
-Each admission as a callout:
-
-- 3pt left accent border in navy (#1a2744)
-- Light cream background (#fdfaf5)
-- Quote text: 11pt italic, indented 0.2 inches from the left border, dark grey (#1f1f1f)
-- Context note (call number, any framing): 10pt regular grey (#666666), below the quote
-- 8pt spacing between admissions
+```js
+// Quote line
+new Paragraph({
+  shading: { fill: "fdfaf5", type: ShadingType.CLEAR },
+  border: { left: { style: BorderStyle.THICK, size: 24, color: "1a2744", space: 4 } },
+  indent: { left: 300 },
+  spacing: { before: 80, after: 40 },
+  children: [new TextRun({ text: '"[admission quote]"', italics: true, size: 22, color: "1f1f1f", font: "Arial" })]
+}),
+// Context note
+new Paragraph({
+  shading: { fill: "fdfaf5", type: ShadingType.CLEAR },
+  border: { left: { style: BorderStyle.THICK, size: 24, color: "1a2744", space: 4 } },
+  indent: { left: 300 },
+  spacing: { before: 0, after: 120 },
+  children: [new TextRun({ text: "[context note — call number, framing]", size: 20, color: "666666", font: "Arial" })]
+}),
+```
 
 ---
 
 **THE ONE SENTENCE TO REMEMBER**
 
-This section gets prominent pull-quote treatment. It should be impossible to miss.
-
-- Full-width horizontal rule in navy (#1a2744) above
-- "THE ONE SENTENCE TO REMEMBER" as a label: 9pt small caps, navy, centered, 12pt below the rule
-- The sentence itself: 16pt bold, centered, dark grey (#1f1f1f), 20pt spacing above and below
-- Full-width horizontal rule in navy (#1a2744) below
-- Nothing else competes for attention on this page section
+```js
+// Top rule
+new Paragraph({
+  border: { bottom: { style: BorderStyle.SINGLE, size: 12, color: "1a2744", space: 2 } },
+  spacing: { before: 320, after: 0 }, children: [new TextRun("")]
+}),
+// Label
+new Paragraph({
+  alignment: AlignmentType.CENTER, spacing: { before: 160, after: 0 },
+  children: [new TextRun({ text: "THE ONE SENTENCE TO REMEMBER", size: 18, color: "1a2744", font: "Arial", allCaps: true })]
+}),
+// The sentence
+new Paragraph({
+  alignment: AlignmentType.CENTER, spacing: { before: 320, after: 320 },
+  children: [new TextRun({ text: "[sentence]", bold: true, size: 32, color: "1f1f1f", font: "Arial" })]
+}),
+// Bottom rule
+new Paragraph({
+  border: { top: { style: BorderStyle.SINGLE, size: 12, color: "1a2744", space: 2 } },
+  spacing: { before: 0, after: 320 }, children: [new TextRun("")]
+}),
+```
 
 ---
 
 **DECISION MAKER STATUS (MEDDPICC)**
 
-Clean two-column table (Component | Status | Detail — 3 columns total):
+3-column table: Component | Status | Notes. Column widths: [2800, 1560, 5000] = 9360.
 
-- Table spans full content width
-- Header row: navy background (#1a2744), white bold text 11pt
-- Status symbols: render ✓ in green (#2e7d32) bold, ~ in amber (#e65100) bold, ? in red (#c62828) bold
-- Alternating row shading: white and very light grey (#f7f7f7)
-- All borders: 1pt light grey (#cccccc)
-- "Blind spots" paragraph below the table: in a light amber callout box (#fff8e1), 1pt amber border (#e65100), 11pt body text — treated as a warning flag
+```js
+new Table({
+  width: { size: 9360, type: WidthType.DXA },
+  columnWidths: [2800, 1560, 5000],
+  rows: [
+    // Header row — navy
+    new TableRow({ children: ["Component","Status","Notes"].map((label, i) =>
+      new TableCell({
+        width: { size: [2800,1560,5000][i], type: WidthType.DXA },
+        shading: { fill: "1a2744", type: ShadingType.CLEAR },
+        margins: { top: 100, bottom: 100, left: 150, right: 150 },
+        borders: { top:{style:BorderStyle.NONE,size:0,color:"auto"}, bottom:{style:BorderStyle.NONE,size:0,color:"auto"},
+                   left:{style:BorderStyle.NONE,size:0,color:"auto"}, right:{style:BorderStyle.NONE,size:0,color:"auto"} },
+        children: [new Paragraph({ children: [
+          new TextRun({ text: label, bold: true, color: "FFFFFF", size: 22, font: "Arial" })
+        ]})]
+      })
+    )}),
+    // Data rows — alternate white / #f7f7f7
+    // Status symbols: ✓ = color "2e7d32" bold, ~ = color "e65100" bold, ? = color "c62828" bold
+    new TableRow({ children: [
+      new TableCell({ width:{size:2800,type:WidthType.DXA}, shading:{fill:"FFFFFF",type:ShadingType.CLEAR},
+        margins:{top:80,bottom:80,left:150,right:150},
+        borders:{top:{style:BorderStyle.SINGLE,size:4,color:"cccccc"},bottom:{style:BorderStyle.SINGLE,size:4,color:"cccccc"},
+                 left:{style:BorderStyle.SINGLE,size:4,color:"cccccc"},right:{style:BorderStyle.SINGLE,size:4,color:"cccccc"}},
+        children:[new Paragraph({children:[new TextRun({text:"Metrics",size:20,font:"Arial"})]})] }),
+      new TableCell({ width:{size:1560,type:WidthType.DXA}, shading:{fill:"FFFFFF",type:ShadingType.CLEAR},
+        margins:{top:80,bottom:80,left:150,right:150},
+        borders:{top:{style:BorderStyle.SINGLE,size:4,color:"cccccc"},bottom:{style:BorderStyle.SINGLE,size:4,color:"cccccc"},
+                 left:{style:BorderStyle.SINGLE,size:4,color:"cccccc"},right:{style:BorderStyle.SINGLE,size:4,color:"cccccc"}},
+        children:[new Paragraph({children:[new TextRun({text:"?",bold:true,color:"c62828",size:20,font:"Arial"})]})] }),
+      new TableCell({ width:{size:5000,type:WidthType.DXA}, shading:{fill:"FFFFFF",type:ShadingType.CLEAR},
+        margins:{top:80,bottom:80,left:150,right:150},
+        borders:{top:{style:BorderStyle.SINGLE,size:4,color:"cccccc"},bottom:{style:BorderStyle.SINGLE,size:4,color:"cccccc"},
+                 left:{style:BorderStyle.SINGLE,size:4,color:"cccccc"},right:{style:BorderStyle.SINGLE,size:4,color:"cccccc"}},
+        children:[new Paragraph({children:[new TextRun({text:"[detail]",size:20,font:"Arial"})]})] }),
+    ]}),
+    // Repeat pattern for: Economic Buyer, Decision Criteria, Decision Process, Paper Process, Identified Pain, Champion, Competition
+    // Use fill "f7f7f7" on odd rows for alternating shading
+  ]
+}),
+// Blind spots block
+new Paragraph({
+  shading: { fill: "fff8e1", type: ShadingType.CLEAR },
+  border: { top:{style:BorderStyle.SINGLE,size:6,color:"e65100"},
+            bottom:{style:BorderStyle.SINGLE,size:6,color:"e65100"},
+            left:{style:BorderStyle.THICK,size:16,color:"e65100",space:4},
+            right:{style:BorderStyle.SINGLE,size:6,color:"e65100"} },
+  indent: { left: 200, right: 200 },
+  spacing: { before: 160, after: 80 },
+  children: [new TextRun({ text: "Blind spots: ", bold: true, size: 22, color: "1a1a1a", font: "Arial" }),
+             new TextRun({ text: "[blind spots text]", size: 22, color: "1a1a1a", font: "Arial" })]
+}),
+```
 
 ---
 
 **WHAT TO AVOID**
 
-Each bullet as a callout:
-
-- Light red-tinted background (#fff5f5)
-- 2pt left border in dark red (#c62828)
-- "Do not [X]" portion in 11pt bold, dark red — followed by the reason in 11pt regular black on the same or next line
-- 8pt spacing between callouts
+```js
+new Paragraph({
+  shading: { fill: "fff5f5", type: ShadingType.CLEAR },
+  border: { left: { style: BorderStyle.THICK, size: 20, color: "c62828", space: 4 },
+            top:{style:BorderStyle.SINGLE,size:4,color:"f5c6c6"},
+            bottom:{style:BorderStyle.SINGLE,size:4,color:"f5c6c6"},
+            right:{style:BorderStyle.SINGLE,size:4,color:"f5c6c6"} },
+  indent: { left: 200, right: 200 },
+  spacing: { before: 80, after: 80 },
+  children: [
+    new TextRun({ text: "Do not [X]", bold: true, size: 22, color: "c62828", font: "Arial" }),
+    new TextRun({ text: " — [reason]", size: 22, color: "1a1a1a", font: "Arial" }),
+  ]
+}),
+```
 
 ---
 
