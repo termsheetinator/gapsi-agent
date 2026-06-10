@@ -863,29 +863,43 @@ Your `memory/` files are never touched by the installer. An existing `.claude/se
 
 ---
 
+<br>
+
 <table>
 <tr>
-<td width="50%" valign="top">
-
-[![Advisory Incubator](assets/advisory_incubator_logo.png)](https://advisoryincubator.com)
-
-**Advisory Incubator™** incubates B2B operators on how to use modern AI and cold email to win $25K–$50K+ engagements across demand generation and A.I. implementation offers — without doing the delivery work themselves. Top, middle, and bottom-of-funnel processes built to help operators win better clients for more money and close through Process Selling™.
-
-**[→ Join the Advisory Incubator™](https://advisoryincubator.com)**
-
+<td align="center" width="50%" valign="top">
+<br>
+<a href="https://advisoryincubator.com">
+<img src="assets/advisory_incubator_logo.png" height="48" alt="Advisory Incubator™">
+</a>
+<br><br>
+<strong>Advisory Incubator™</strong>
+<br><br>
+Incubates B2B operators on how to use modern AI and cold email to win $25K–$50K+ engagements across demand generation and A.I. implementation offers — without doing the delivery work themselves.
+<br><br>
+<a href="https://advisoryincubator.com"><strong>Join the Advisory Incubator™ →</strong></a>
+<br><br>
 </td>
-<td width="50%" valign="top">
-
-[![InfraSuite](assets/infrasuite..png)](https://infrasuite.io/inquire)
-
-**99 Mailboxes Per Domain, Built for Deliverability.** Enterprise mailboxes built for cold email operators who need dependable deliverability at small, medium, or large volume. Added to your sending tool and warming in under 24 hours, with 24/7 Slack support from competent operators.
-
-**[→ Get 30% off your first month](https://infrasuite.io/inquire)**
-
+<td align="center" width="50%" valign="top">
+<br>
+<a href="https://infrasuite.io/inquire">
+<img src="assets/infrasuite_logo.png" height="48" alt="InfraSuite">
+</a>
+<br><br>
+<strong>InfraSuite</strong>
+<br><br>
+99 Mailboxes Per Domain, Built for Deliverability. Enterprise mailboxes for cold email operators who need dependable deliverability at any volume — added to your sending tool and warming in under 24 hours, with 24/7 Slack support.
+<br><br>
+<a href="https://infrasuite.io/inquire"><strong>Get 30% off your first month →</strong></a>
+<br><br>
 </td>
 </tr>
 </table>
 
----
+<br>
 
-*Built by [termsheetinator](https://github.com/termsheetinator) · [Follow on X](https://x.com/termsheetinator)*
+<div align="center">
+
+*Built by [termsheetinator](https://github.com/termsheetinator) · [Follow on X →](https://x.com/termsheetinator)*
+
+</div>
