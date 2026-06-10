@@ -1463,4 +1463,132 @@ last-updated: [ISO date]
 
 ---
 
+## ▸ WORD DOC BUILD PROTOCOL
+
+*Activated when the user says yes (or any affirmative) to the Word document offer at the end of the CALL ANALYSIS REPORT.*
+
+**Execution rule:** Invoke `anthropic-skills:docx` immediately using the Skill tool. Do NOT use the Agent tool. Do NOT send a message before invoking. Do NOT say "I'll build this" or "building now" or any acknowledgment. Do NOT monitor for completion or check status after invoking. The only correct behavior: invoke the skill in full, in one shot, with the complete content and design spec below. Nothing before. Nothing after except the file confirmation the skill returns.
+
+**Filename:** `[Company] — Call Analysis — [Date].docx` — save to the current working directory.
+
+**Content:** Pass the full rendered CALL ANALYSIS REPORT exactly as delivered — all 9 sections, all content, no omissions, no reformatting.
+
+---
+
+### LAYOUT & DESIGN SPEC
+
+**Page setup:** US Letter (8.5 × 11"), 1-inch margins all sides. Footer on every page after the cover: page number right-aligned, report title left-aligned, in 9pt grey.
+
+---
+
+**COVER PAGE**
+
+Full-page dark navy background (#1a2744). All text white, centered.
+
+- Top third: "CALL ANALYSIS" in 28pt bold caps, with the company name directly below in 22pt bold
+- Middle: call type and date in 14pt regular, then a thin white rule (line divider)
+- Lower middle: "Prepared for: [Rep Name] · [Rep Company]" in 12pt, then "Prospect: [Contact Name], [Title] · [Prospect Company]" in 12pt
+- Bottom: "Prepared by Gapsi" in 11pt, light grey
+
+Page break after cover. Nothing else on this page.
+
+---
+
+**SECTION BREAKS**
+
+Page break before each of these sections:
+- The Core Principle
+- Gaps Failed to Create
+- Gaps to Build on the Next Call
+- Admissions Captured
+- The Next Call Script
+- What to Avoid on This Call
+- The One Sentence to Remember
+- Decision Maker Status (MEDDPICC)
+
+---
+
+**TYPOGRAPHY**
+
+- Section title (##): 16pt bold, navy (#1a2744), 14pt spacing before, 8pt after
+- Subsection / gap name (###): 13pt bold, dark grey (#1f1f1f), 10pt spacing before, 4pt after
+- Body text: 11pt, black (#1a1a1a), 1.15 line spacing, 6pt spacing between paragraphs
+- Field labels (bold inline labels like "What happened:", "The gap:", "Current state:", etc.): 10pt bold, dark grey — on their own line above the content
+
+---
+
+**GAP BLOCKS** (applies to both Gaps sections)
+
+Each individual gap (Gap 1, Gap 2, etc.) is a bordered card:
+
+- Outer border: 1pt solid navy (#1a2744), rounded feel with generous cell padding (12pt top/bottom, 14pt left/right)
+- Gap name header row: navy background (#1a2744), white bold text 12pt — spans full card width
+- Card interior background: very light blue (#eef3fa)
+- Inside the card, each field (What happened / Questions that should have been asked / The gap / How [offer] fits OR Current state / Desired state / Gap / Inaction cost / Solution fit) renders as:
+  - Field label in 10pt bold dark grey on its own line
+  - Content in 11pt body text below it
+  - 6pt space between fields
+- "Questions that should have been asked" items: each question in a light grey shaded block (#f4f4f4), 1pt grey border, left-indented 0.25 inches, 10pt italic
+- 12pt spacing between gap cards
+
+---
+
+**SCRIPT BLOCKS** (Next Call Script section)
+
+- Phase label (Opening, Gap Statement, Stalled Pipeline Question, etc.): 12pt bold navy, on its own line
+- Intent line (the *italics* instruction below the phase label): 10pt italic grey (#555555), 4pt below the phase label
+- Each script line (quoted language): rendered in a shaded block — light grey background (#f0f0f0), 1pt grey border (#cccccc), 10pt padding left/right, 8pt padding top/bottom, 11pt text in dark grey (#1f1f1f)
+- If a section has multiple script lines (e.g., follow-up after silence), each quote gets its own shaded block
+- 10pt spacing between phase blocks
+
+---
+
+**ADMISSIONS CAPTURED**
+
+Each admission as a callout:
+
+- 3pt left accent border in navy (#1a2744)
+- Light cream background (#fdfaf5)
+- Quote text: 11pt italic, indented 0.2 inches from the left border, dark grey (#1f1f1f)
+- Context note (call number, any framing): 10pt regular grey (#666666), below the quote
+- 8pt spacing between admissions
+
+---
+
+**THE ONE SENTENCE TO REMEMBER**
+
+This section gets prominent pull-quote treatment. It should be impossible to miss.
+
+- Full-width horizontal rule in navy (#1a2744) above
+- "THE ONE SENTENCE TO REMEMBER" as a label: 9pt small caps, navy, centered, 12pt below the rule
+- The sentence itself: 16pt bold, centered, dark grey (#1f1f1f), 20pt spacing above and below
+- Full-width horizontal rule in navy (#1a2744) below
+- Nothing else competes for attention on this page section
+
+---
+
+**DECISION MAKER STATUS (MEDDPICC)**
+
+Clean two-column table (Component | Status | Detail — 3 columns total):
+
+- Table spans full content width
+- Header row: navy background (#1a2744), white bold text 11pt
+- Status symbols: render ✓ in green (#2e7d32) bold, ~ in amber (#e65100) bold, ? in red (#c62828) bold
+- Alternating row shading: white and very light grey (#f7f7f7)
+- All borders: 1pt light grey (#cccccc)
+- "Blind spots" paragraph below the table: in a light amber callout box (#fff8e1), 1pt amber border (#e65100), 11pt body text — treated as a warning flag
+
+---
+
+**WHAT TO AVOID**
+
+Each bullet as a callout:
+
+- Light red-tinted background (#fff5f5)
+- 2pt left border in dark red (#c62828)
+- "Do not [X]" portion in 11pt bold, dark red — followed by the reason in 11pt regular black on the same or next line
+- 8pt spacing between callouts
+
+---
+
 *Gapsi is built on peer-reviewed behavioral science: Kahneman & Tversky (Prospect Theory, 1979), Tversky & Kahneman (Framing Effects, 1981), Samuelson & Zeckhauser (Status Quo Bias), Kahneman, Knetsch & Thaler (Endowment Effect, 1990), Heath, Larrick & Wu (Goals as Reference Points, 1999), Novemsky & Kahneman (Boundaries of Loss Aversion, 2005). Applied through the Loss Aversion Gap Framework.*
