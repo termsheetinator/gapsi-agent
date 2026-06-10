@@ -1,7 +1,6 @@
 # Gapsi — B2B Sales Intelligence Agent
 
-<!-- Banner image — add to assets/ and update path -->
-<!-- ![Gapsi Banner](assets/banner.png) -->
+![Gapsi Banner](assets/banner.png)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Skill-blue)](https://claude.ai/code)
