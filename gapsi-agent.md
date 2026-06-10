@@ -1481,7 +1481,7 @@ last-updated: [ISO date]
 
 ### NODE.JS BUILD SPEC
 
-**Design principle:** This document must feel spacious and well-structured — not like a wall of text. Every card, callout, and block should have visible breathing room above, below, and inside it. If anything looks cramped, increase padding and spacing. The document has 9 sections across 12–15 pages. Generous whitespace is not wasted space — it is what makes the content readable at a glance.
+**Design principle:** This document must feel spacious and well-structured — not like a wall of text. Every card, callout, and block should have visible breathing room above, below, and inside it. The hierarchy of space is: MORE space before a new field label than after it — each label should feel anchored to the content below it, but visually separated from the content above. If anything looks cramped, increase spacing. The document has 9 sections across 12–15 pages. Generous whitespace is not wasted space — it is what makes the content readable at a glance.
 
 **Imports — always use this exact set:**
 
@@ -1566,10 +1566,10 @@ The Core Principle, Gaps Failed to Create, Gaps to Build on the Next Call, Admis
 
 **TYPOGRAPHY**
 
-- Section title: 16pt bold navy `1a2744`, spacing before 360 after 200
-- Subsection / gap name: 13pt bold dark grey `1f1f1f`, spacing before 240 after 100
-- Body text: 11pt regular black `1a1a1a`, line spacing 276 (1.15×), spacing after 160
-- Field labels: 10pt bold dark grey `333333`, spacing before 160 after 80 — label always has space above it, tight below so it feels attached to its content
+- Section title: 16pt bold navy `1a2744`, spacing before 400 after 320
+- Subsection / gap name: 13pt bold dark grey `1f1f1f`, spacing before 320 after 160
+- Body text: 11pt regular black `1a1a1a`, line spacing 276 (1.15×), spacing before 80 after 160
+- Field labels: 10pt bold dark grey `333333`, spacing after 140 — label is tight below (anchored to content), spacious above (separated from previous field). First label in a block: before 0 (cell top margin provides top padding). Every subsequent label: before 200.
 
 ---
 
@@ -1586,28 +1586,33 @@ new Table({
       margins: { top: 160, bottom: 160, left: 400, right: 400 },
       borders: { top:{style:BorderStyle.NONE,size:0,color:"auto"}, bottom:{style:BorderStyle.NONE,size:0,color:"auto"},
                  left:{style:BorderStyle.NONE,size:0,color:"auto"}, right:{style:BorderStyle.NONE,size:0,color:"auto"} },
-      children: [new Paragraph({ children: [
-        new TextRun({ text: "Gap N: [Gap Name]", bold: true, color: "FFFFFF", size: 24, font: "Arial" })
-      ]})]
+      children: [new Paragraph({
+        spacing: { line: 276, lineRule: "auto" },
+        children: [new TextRun({ text: "Gap N: [Gap Name]", bold: true, color: "FFFFFF", size: 24, font: "Arial" })]
+      })]
     })] }),
     // Row 2 — light blue content body — match side padding to header, generous vertical padding
     new TableRow({ children: [new TableCell({
       shading: { fill: "eef3fa", type: ShadingType.CLEAR },
-      margins: { top: 240, bottom: 280, left: 400, right: 400 },
+      margins: { top: 240, bottom: 360, left: 400, right: 400 },
       borders: { top:{style:BorderStyle.NONE,size:0,color:"auto"},
                  bottom:{style:BorderStyle.SINGLE,size:6,color:"1a2744"},
                  left:{style:BorderStyle.SINGLE,size:6,color:"1a2744"},
                  right:{style:BorderStyle.SINGLE,size:6,color:"1a2744"} },
       children: [
-        // Field label: 10pt bold #333333, tight spacing after (label hugs its content)
-        new Paragraph({ spacing: { before: 0, after: 80 }, children: [
+        // FIRST field label: before:0 (cell top provides padding), after:140
+        new Paragraph({ spacing: { before: 0, after: 140 }, children: [
           new TextRun({ text: "What happened:", bold: true, size: 20, color: "333333", font: "Arial" })
         ]}),
-        // Content paragraph: 11pt body, generous spacing after to separate from next field
+        // Content paragraph: 11pt body, no before (stays close to label), generous after
         new Paragraph({ spacing: { after: 200 }, children: [
           new TextRun({ text: "[content]", size: 22, color: "1a1a1a", font: "Arial" })
         ]}),
-        // Each question: shaded sub-block, indented with breathing room above and below
+        // SUBSEQUENT field labels (Questions, The gap:, How X fits:): before:200 (clear separation from previous content), after:140
+        new Paragraph({ spacing: { before: 200, after: 140 }, children: [
+          new TextRun({ text: "Questions that should have been asked:", bold: true, size: 20, color: "333333", font: "Arial" })
+        ]}),
+        // Each question: shaded sub-block, breathing room above and below
         new Paragraph({
           shading: { fill: "f4f4f4", type: ShadingType.CLEAR },
           border: { top:{style:BorderStyle.SINGLE,size:4,color:"cccccc"},
@@ -1615,15 +1620,15 @@ new Table({
                     left:{style:BorderStyle.SINGLE,size:4,color:"cccccc"},
                     right:{style:BorderStyle.SINGLE,size:4,color:"cccccc"} },
           indent: { left: 360, right: 120 },
-          spacing: { before: 80, after: 80 },
+          spacing: { before: 120, after: 120 },
           children: [new TextRun({ text: '"[question]"', italics: true, size: 20, color: "333333", font: "Arial" })]
         }),
       ]
     })] }),
   ],
 }),
-// Spacer paragraph between gap cards — creates visual separation, not table margin
-new Paragraph({ spacing: { before: 0, after: 280 }, children: [] }),
+// Spacer paragraph between gap cards — 480 creates clear visual separation between major blocks
+new Paragraph({ spacing: { before: 0, after: 480 }, children: [] }),
 ```
 
 ---
@@ -1631,15 +1636,15 @@ new Paragraph({ spacing: { before: 0, after: 280 }, children: [] }),
 **SCRIPT BLOCKS** (Next Call Script section)
 
 ```js
-// Phase label
-new Paragraph({ spacing: { before: 200, after: 80 }, children: [
+// Phase label — generous space above each phase, more air after before intent note
+new Paragraph({ spacing: { before: 280, after: 120 }, children: [
   new TextRun({ text: "[Phase Name]", bold: true, size: 24, color: "1a2744", font: "Arial" })
 ]}),
-// Intent line
-new Paragraph({ spacing: { after: 100 }, children: [
+// Intent line — stays close to phase label (before:0), more air after before quote block
+new Paragraph({ spacing: { before: 0, after: 140 }, children: [
   new TextRun({ text: "[intent note]", italics: true, size: 20, color: "555555", font: "Arial" })
 ]}),
-// Quote block — shaded box with generous indent so text breathes inside the block
+// Quote block — shaded box with generous indent, generous after so next phase has breathing room
 new Paragraph({
   shading: { fill: "f0f0f0", type: ShadingType.CLEAR },
   border: { top:{style:BorderStyle.SINGLE,size:4,color:"cccccc"},
@@ -1647,7 +1652,7 @@ new Paragraph({
             left:{style:BorderStyle.SINGLE,size:4,color:"cccccc"},
             right:{style:BorderStyle.SINGLE,size:4,color:"cccccc"} },
   indent: { left: 280, right: 280 },
-  spacing: { before: 120, after: 200 },
+  spacing: { before: 120, after: 280 },
   children: [new TextRun({ text: '"[exact script line]"', size: 22, color: "1f1f1f", font: "Arial" })]
 }),
 ```
@@ -1665,12 +1670,12 @@ new Paragraph({
   spacing: { before: 80, after: 40 },
   children: [new TextRun({ text: '"[admission quote]"', italics: true, size: 22, color: "1f1f1f", font: "Arial" })]
 }),
-// Context note
+// Context note — brief before (light attachment to quote), more after (separation from next admission)
 new Paragraph({
   shading: { fill: "fdfaf5", type: ShadingType.CLEAR },
   border: { left: { style: BorderStyle.THICK, size: 24, color: "1a2744", space: 4 } },
   indent: { left: 300 },
-  spacing: { before: 0, after: 120 },
+  spacing: { before: 80, after: 160 },
   children: [new TextRun({ text: "[context note — call number, framing]", size: 20, color: "666666", font: "Arial" })]
 }),
 ```
@@ -1718,7 +1723,7 @@ new Table({
       new TableCell({
         width: { size: [2800,1560,5000][i], type: WidthType.DXA },
         shading: { fill: "1a2744", type: ShadingType.CLEAR },
-        margins: { top: 100, bottom: 100, left: 150, right: 150 },
+        margins: { top: 140, bottom: 140, left: 200, right: 200 },
         borders: { top:{style:BorderStyle.NONE,size:0,color:"auto"}, bottom:{style:BorderStyle.NONE,size:0,color:"auto"},
                    left:{style:BorderStyle.NONE,size:0,color:"auto"}, right:{style:BorderStyle.NONE,size:0,color:"auto"} },
         children: [new Paragraph({ children: [
@@ -1730,17 +1735,17 @@ new Table({
     // Status symbols: ✓ = color "2e7d32" bold, ~ = color "e65100" bold, ? = color "c62828" bold
     new TableRow({ children: [
       new TableCell({ width:{size:2800,type:WidthType.DXA}, shading:{fill:"FFFFFF",type:ShadingType.CLEAR},
-        margins:{top:80,bottom:80,left:150,right:150},
+        margins:{top:100,bottom:100,left:200,right:200},
         borders:{top:{style:BorderStyle.SINGLE,size:4,color:"cccccc"},bottom:{style:BorderStyle.SINGLE,size:4,color:"cccccc"},
                  left:{style:BorderStyle.SINGLE,size:4,color:"cccccc"},right:{style:BorderStyle.SINGLE,size:4,color:"cccccc"}},
         children:[new Paragraph({children:[new TextRun({text:"Metrics",size:20,font:"Arial"})]})] }),
       new TableCell({ width:{size:1560,type:WidthType.DXA}, shading:{fill:"FFFFFF",type:ShadingType.CLEAR},
-        margins:{top:80,bottom:80,left:150,right:150},
+        margins:{top:100,bottom:100,left:200,right:200},
         borders:{top:{style:BorderStyle.SINGLE,size:4,color:"cccccc"},bottom:{style:BorderStyle.SINGLE,size:4,color:"cccccc"},
                  left:{style:BorderStyle.SINGLE,size:4,color:"cccccc"},right:{style:BorderStyle.SINGLE,size:4,color:"cccccc"}},
         children:[new Paragraph({children:[new TextRun({text:"?",bold:true,color:"c62828",size:20,font:"Arial"})]})] }),
       new TableCell({ width:{size:5000,type:WidthType.DXA}, shading:{fill:"FFFFFF",type:ShadingType.CLEAR},
-        margins:{top:80,bottom:80,left:150,right:150},
+        margins:{top:100,bottom:100,left:200,right:200},
         borders:{top:{style:BorderStyle.SINGLE,size:4,color:"cccccc"},bottom:{style:BorderStyle.SINGLE,size:4,color:"cccccc"},
                  left:{style:BorderStyle.SINGLE,size:4,color:"cccccc"},right:{style:BorderStyle.SINGLE,size:4,color:"cccccc"}},
         children:[new Paragraph({children:[new TextRun({text:"[detail]",size:20,font:"Arial"})]})] }),
@@ -1757,7 +1762,7 @@ new Paragraph({
             left:{style:BorderStyle.THICK,size:16,color:"e65100",space:4},
             right:{style:BorderStyle.SINGLE,size:6,color:"e65100"} },
   indent: { left: 200, right: 200 },
-  spacing: { before: 160, after: 80 },
+  spacing: { before: 240, after: 120 },
   children: [new TextRun({ text: "Blind spots: ", bold: true, size: 22, color: "1a1a1a", font: "Arial" }),
              new TextRun({ text: "[blind spots text]", size: 22, color: "1a1a1a", font: "Arial" })]
 }),
@@ -1775,7 +1780,7 @@ new Paragraph({
             bottom:{style:BorderStyle.SINGLE,size:4,color:"f5c6c6"},
             right:{style:BorderStyle.SINGLE,size:4,color:"f5c6c6"} },
   indent: { left: 200, right: 200 },
-  spacing: { before: 80, after: 80 },
+  spacing: { before: 120, after: 120 },
   children: [
     new TextRun({ text: "Do not [X]", bold: true, size: 22, color: "c62828", font: "Arial" }),
     new TextRun({ text: " — [reason]", size: 22, color: "1a1a1a", font: "Arial" }),
