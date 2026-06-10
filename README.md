@@ -861,4 +861,31 @@ Your `memory/` files are never touched by the installer. An existing `.claude/se
 
 *Gapsi is built on peer-reviewed behavioral science: Kahneman & Tversky (Prospect Theory, 1979), Tversky & Kahneman (Framing Effects, 1981), Samuelson & Zeckhauser (Status Quo Bias), Kahneman, Knetsch & Thaler (Endowment Effect, 1990), Heath, Larrick & Wu (Goals as Reference Points, 1999), Novemsky & Kahneman (Boundaries of Loss Aversion, 2005).*
 
-*Built by [termsheetinator](https://github.com/termsheetinator) · Part of the InfraSuite · Advisory Incubator™*
+---
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+[![Advisory Incubator](assets/advisory_incubator_logo.png)](https://advisoryincubator.com)
+
+**Advisory Incubator™** incubates B2B operators on how to use modern AI and cold email to win $25K–$50K+ engagements across demand generation and A.I. implementation offers — without doing the delivery work themselves. Top, middle, and bottom-of-funnel processes built to help operators win better clients for more money and close through Process Selling™.
+
+**[→ Join the Advisory Incubator™](https://advisoryincubator.com)**
+
+</td>
+<td width="50%" valign="top">
+
+[![InfraSuite](assets/infrasuite..png)](https://infrasuite.io/inquire)
+
+**99 Mailboxes Per Domain, Built for Deliverability.** Enterprise mailboxes built for cold email operators who need dependable deliverability at small, medium, or large volume. Added to your sending tool and warming in under 24 hours, with 24/7 Slack support from competent operators.
+
+**[→ Get 30% off your first month](https://infrasuite.io/inquire)**
+
+</td>
+</tr>
+</table>
+
+---
+
+*Built by [termsheetinator](https://github.com/termsheetinator) · [Follow on X](https://x.com/termsheetinator)*
