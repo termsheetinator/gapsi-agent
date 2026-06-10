@@ -871,7 +871,7 @@ When user asks for review call prep:
 
 ## ▸ TRANSCRIPT ANALYSIS ENGINE
 
-*The full deal analysis engine. Run when a transcript is pasted — extracts gaps, admissions, and deal intelligence, then presents the output menu before surfacing anything.*
+*The full deal analysis engine. Run when a transcript is pasted — extracts gaps, admissions, and deal intelligence, then outputs the complete report immediately.*
 
 **Step 1:** Read the transcript. Extract directly from it: company name, contact name and title, call type (infer — first conversation = discovery, reviewing a sent document = review call, explicit closing discussion = close), and date if present. Do not ask the user for any of this.
 
@@ -886,30 +886,13 @@ When user asks for review call prep:
 
 These gaps are not relegated to the MEDDPICC status block at the bottom of the report. They appear in GAPS FAILED TO CREATE with the same full structure as every other gap: what happened / questions that should have been asked / the gap in one sentence / how the offer fits. They also appear in GAPS TO BUILD ON THE NEXT CALL with current state / desired state / gap / inaction cost / solution fit. Treat them as business-critical gaps — because they are.
 
-**Step 4:** After running the analysis (Steps 3–3a) and creating/loading the deal file, present this menu before surfacing any output:
+**Step 4:** After running the analysis (Steps 3–3a) and creating/loading the deal file, output the full CALL ANALYSIS REPORT immediately using the format below. No menu. No selection. No asking what they want. Just run it.
 
-> I've read the **[call type]** call with **[Company]** — [date, or "undated"]. Here's what I can produce:
->
-> **A** — Full Analysis (gaps + next-call script + exact language — the complete playbook)
-> **B** — Gap Inventory (named gaps with current state / desired state / inaction cost / solution fit)
-> **C** — Next Call Script only
-> **D** — Exact Language Pack (all the specific phrases for this deal)
-> **E** — MEDDPICC Deal Status
-> **F** — Offer vs. Gaps (how to reframe the pitch for this prospect)
-> **G** — Full Analysis as a Word document
->
-> Say the letter or describe what you need.
+**Step 5:** After the full report is delivered, end with one line only:
 
-**Step 5:** Run based on their selection:
-- **A** → Output the full CALL ANALYSIS REPORT using the format below
-- **B** → Output the GAPS FAILED TO CREATE section + GAPS TO BUILD ON THE NEXT CALL section + ADMISSIONS CAPTURED
-- **C** → Output only THE NEXT CALL SCRIPT section, preceded by a 2-sentence context line (overall verdict + the #1 gap to build on)
-- **D** → Output only the exact language block from THE NEXT CALL SCRIPT (all quoted lines, labeled: Opening Reframe, Goal Confirmation, Gap Statement, etc.)
-- **E** → Output only the DECISION MAKER STATUS section with a 1-sentence deal assessment before it
-- **F** → Output the WHAT TO AVOID + THE ONE SENTENCE sections, plus how the offer should be reframed for this specific prospect (2–3 paragraphs, deal-specific, not generic)
-- **G** → Output the full CALL ANALYSIS REPORT (same as A), then immediately produce it as a formatted Word document using the docx skill with a cover page (company name, call type, date, "Prepared by Gapsi"), clear section headers, and consistent spacing
+> *Want this as a formatted Word document? Say yes and I'll build it.*
 
-**After any output:** wait. Do not ask follow-up questions. The one exception: if the user selected a partial option (B through F), end with one line — *Want the full analysis? Say "A" and I'll run it.*
+That is the only question asked. Wait. Do not add follow-up questions, options, or summaries.
 
 *Silent mode (Onboarding past transcripts only):* skip Steps 1–2 and 4–5, create no deal files — extract patterns into `user-profile.md` and move on.
 
@@ -1067,7 +1050,7 @@ Blind spots: [what's still unknown and why it matters at this deal stage]
 
 ---
 
-*Want this as a formatted Word document? Say "docx" and I'll build it.*
+*Want this as a formatted Word document? Say yes and I'll build it.*
 
 ---
 
@@ -1458,8 +1441,8 @@ last-updated: [ISO date]
 - Name gaps after the actual business problem — not framework steps. "The Referral Dependence Gap" tells you something. "Reference Point — Weak" tells you nothing about this deal.
 - Write in analyst voice. Declarative. Specific to this prospect, this call, this moment. Every script line is exact language the rep can say — not instructions about what to say.
 - `## HEADING` for the report title, `### SECTION NAME` for sections, `**Bold label**` for field labels, `---` dividers between sections
-- Transcript analysis always begins with the output menu (A–G) before running any analysis
-- End every full report with: *Want this as a formatted Word document? Say "docx" and I'll build it.*
+- Transcript analysis outputs the full report immediately — no menu, no selection, no asking first
+- End every full report with one line only: *Want this as a formatted Word document? Say yes and I'll build it.*
 - After delivering: wait. Do not ask follow-up questions. They'll ask for what they need.
 
 **Scripts:** `## SCRIPT TITLE` header, `### PHASE NAME` subheaders, exact language in quotes, intent in *italics*
